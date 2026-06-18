@@ -749,6 +749,7 @@ footer strong { color: #fff; }
     <li><a href="#" onclick="showCat('arepas',this);closeMobile();return false;" class="active">Arepas</a></li>
     <li><a href="#" onclick="showCat('perros',this);closeMobile();return false;">Perros</a></li>
     <li><a href="#" onclick="showCat('hamburguesas',this);closeMobile();return false;">Hamburguesas</a></li>
+    <li><a href="#" onclick="showCat('pepitos',this);closeMobile();return false;">Pepitos</a></li>
     <li><a href="#" onclick="showCat('ubicacion',this);closeMobile();return false;">Ubicación</a></li>
     <li><a href="redes.html" onclick="closeMobile();">Redes</a></li>
     <li><a href="https://wa.me/573043753966" target="_blank" rel="noopener noreferrer" class="nav-wa">WhatsApp ↗</a></li>
@@ -820,6 +821,9 @@ footer strong { color: #fff; }
   <button class="cat-tab" onclick="showCat('hamburguesas',this)">
     <span class="tab-emoji">🍔</span> Hamburguesas
   </button>
+  <button class="cat-tab" onclick="showCat('pepitos',this)">
+    <span class="tab-emoji">🥪</span> Pepitos
+  </button>
   <button class="cat-tab" onclick="showCat('ubicacion',this)">
     <span class="tab-emoji">📍</span> Ubicación
   </button>
@@ -860,6 +864,15 @@ footer strong { color: #fff; }
     <p>Carne artesanal, ingredientes frescos y sabor único</p>
   </div>
   <div class="items-grid" id="grid-hamburguesas"></div>
+</section>
+
+<!-- SECTION: PEPITOS -->
+<section class="menu-section" id="sec-pepitos">
+  <div class="section-header">
+    <h2>Pepitos venezolanos</h2>
+    <p>Producto diferenciador: porciones generosas, carne o pollo y combinaciones especiales</p>
+  </div>
+  <div class="items-grid" id="grid-pepitos"></div>
 </section>
 
 <!-- SECTION: UBICACION -->
@@ -928,10 +941,43 @@ const MENU = {
     { name:"Hamburguesa de la Casa", ing:["Carne artesanal","Pechuga","Lechuga","Tomate","Papas","Huevo","Tocineta","Jamón","Queso mozzarella","Aguacate","Salsas"], prices:[{label:null,val:"$22.000"}] },
     { name:"Hamburguesa Pig", ing:["Carne artesanal","Chuleta de cerdo ahumada","Huevo","Tocineta","Jamón","Queso mozzarella","Lechuga","Tomate","Papas","Salsas"], prices:[{label:null,val:"$24.000"}] },
     { name:"Hamburguesa Trifásica", ing:["Carne artesanal","Pollo","Chuleta de cerdo ahumada o carne al barril","Huevo","Tocineta","Jamón","Queso mozzarella","Lechuga","Tomate","Papas","Salsas"], prices:[{label:null,val:"$30.000"}] }
-  ]
+  ],
+  pepitos: []
 };
 
 const chevron = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>`;
+
+function buildPepitosPlaceholder() {
+  return `<div class="item-card" onclick="toggleCard(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCard(this)">
+    <div class="item-media">
+      <div class="item-media-empty">
+        <span class="media-icon">🥪</span>
+        <strong>Pepitos</strong>
+        <p>Sección lista para cargar foto, sabores y precios cuando me pases el listado final.</p>
+      </div>
+      <span class="item-media-badge">Próximamente</span>
+    </div>
+    <div class="item-card-top">
+      <span class="item-name">Pepitos venezolanos</span>
+      <span class="item-pill">Nuevo</span>
+    </div>
+    <div class="item-toggle-row">${chevron}<span>Ver guía de carga</span></div>
+    <div class="item-body">
+      <p class="ing-label">Qué falta agregar</p>
+      <div class="ing-chips">
+        <span class="ing-chip">Lista de sabores</span>
+        <span class="ing-chip">Precios</span>
+        <span class="ing-chip">Foto</span>
+      </div>
+      <div class="price-rows">
+        <div class="price-row">
+          <span class="price-row-label"><span class="price-dot"></span>Estado</span>
+          <span class="price-row-val">Pendiente</span>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
 
 function buildCard(item) {
   const mainPrice = item.prices.length === 1
@@ -975,9 +1021,10 @@ function buildCard(item) {
 }
 
 function renderAll() {
-  ['arepas','perros','hamburguesas'].forEach(cat => {
+  ['arepas','perros','hamburguesas','pepitos'].forEach(cat => {
     const g = document.getElementById('grid-' + cat);
     if (g) g.innerHTML = MENU[cat].map(buildCard).join('');
+    if (g && cat === 'pepitos' && MENU[cat].length === 0) g.innerHTML = buildPepitosPlaceholder();
   });
 }
 
