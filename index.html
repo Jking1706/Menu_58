@@ -56,22 +56,22 @@
 
 html[data-theme="dark"] {
   --page-bg: #050505;
-  --nav-bg: rgba(5,5,6,0.94);
-  --hero-bg: radial-gradient(circle at top right, rgba(215,38,56,0.22), transparent 26%), radial-gradient(circle at 15% 20%, rgba(255,195,0,0.08), transparent 20%), linear-gradient(135deg, #050505 0%, #101114 100%);
+  --nav-bg: rgba(7,7,8,0.88);
+  --hero-bg: radial-gradient(circle at top right, rgba(215,38,56,0.18), transparent 22%), radial-gradient(circle at 20% 18%, rgba(255,195,0,0.08), transparent 18%), linear-gradient(135deg, #050505 0%, #090a0d 100%);
   --hero-text: #FFFFFF;
   --hero-note: rgba(255,255,255,0.82);
-  --accent-blue: #9FB8D8;
-  --toggle-bg: rgba(255,255,255,0.08);
+  --accent-blue: #B5C3D8;
+  --toggle-bg: rgba(255,255,255,0.04);
   --toggle-border: rgba(255,255,255,0.10);
   --toggle-text: #FFFFFF;
   --toggle-thumb: #FFFFFF;
   --toggle-thumb-text: #1A1A1A;
-  --combo-bg: linear-gradient(135deg, rgba(255,195,0,0.08) 0%, #111315 52%, rgba(215,38,56,0.08) 100%);
-  --combo-border: rgba(255,195,0,0.16);
+  --combo-bg: linear-gradient(135deg, rgba(255,195,0,0.08) 0%, #0c0e12 52%, rgba(215,38,56,0.06) 100%);
+  --combo-border: rgba(255,195,0,0.12);
   --text: #F4F7FB;
   --muted: #A6ADBB;
   --border: rgba(255,255,255,0.08);
-  --card-bg: #111315;
+  --card-bg: #0c0e12;
   --bg: #050505;
 }
 
@@ -162,33 +162,37 @@ nav {
   background: var(--toggle-bg);
   color: var(--toggle-text);
   border-radius: 999px;
-  padding: 0.35rem 0.75rem 0.35rem 0.4rem;
+  padding: 0.25rem;
+  width: 48px;
+  height: 28px;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  justify-content: flex-start;
+  gap: 0;
   cursor: pointer;
   margin-left: 0.75rem;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  overflow: hidden;
 }
 
-.theme-toggle:hover { transform: translateY(-1px); }
+.theme-toggle:hover { transform: translateY(-1px); border-color: rgba(255,195,0,0.24); }
 
 .theme-toggle-track {
-  width: 46px;
-  height: 24px;
+  width: 100%;
+  height: 100%;
   border-radius: 999px;
   position: relative;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: transparent;
+  border: none;
   flex-shrink: 0;
 }
 
 .theme-toggle-thumb {
   position: absolute;
-  top: 2px;
-  left: 2px;
+  top: 3px;
+  left: 3px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -202,14 +206,9 @@ nav {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.35s ease, color 0.35s ease;
 }
 
-html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(22px); }
+html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
 
-.theme-toggle-label {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  white-space: nowrap;
-}
+.theme-toggle-label { display: none; }
 
 .hamburger {
   display: none;
@@ -911,6 +910,10 @@ footer strong { color: #fff; }
     <a class="hero-badge" href="#" onclick="showCat('ubicacion',this);return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       Cra 23 #74-89, Barrio Ormaza
+    </a>
+    <a class="hero-badge" href="https://www.instagram.com/sabor_.mas58?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+      Instagram @sabor_.mas58
     </a>
     <a class="hero-badge" href="redes.html">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M8 10l5 3-5 3z"/></svg>

@@ -41,6 +41,7 @@
   --toggle-text: #FFFFFF;
   --toggle-thumb: #FFC300;
   --toggle-thumb-text: #1A1A1A;
+  --code-bg: #17110a;
   --text: #1A1A1A;
   --muted: #5D6470;
   --border: rgba(0,53,102,0.14);
@@ -51,20 +52,21 @@
 
 html[data-theme="dark"] {
   --page-bg: #050505;
-  --nav-bg: rgba(5,5,6,0.94);
-  --hero-bg: radial-gradient(circle at top right, rgba(215,38,56,0.22), transparent 26%), radial-gradient(circle at 15% 20%, rgba(255,195,0,0.08), transparent 20%), linear-gradient(135deg, #050505 0%, #101114 100%);
+  --nav-bg: rgba(7,7,8,0.88);
+  --hero-bg: radial-gradient(circle at top right, rgba(215,38,56,0.18), transparent 22%), radial-gradient(circle at 20% 18%, rgba(255,195,0,0.08), transparent 18%), linear-gradient(135deg, #050505 0%, #090a0d 100%);
   --hero-text: #FFFFFF;
   --hero-note: rgba(255,255,255,0.82);
-  --accent-blue: #9FB8D8;
-  --toggle-bg: rgba(255,255,255,0.08);
+  --accent-blue: #B5C3D8;
+  --toggle-bg: rgba(255,255,255,0.04);
   --toggle-border: rgba(255,255,255,0.10);
   --toggle-text: #FFFFFF;
   --toggle-thumb: #FFFFFF;
   --toggle-thumb-text: #1A1A1A;
+  --code-bg: #0b0c0f;
   --text: #F4F7FB;
   --muted: #A6ADBB;
   --border: rgba(255,255,255,0.08);
-  --card-bg: #111315;
+  --card-bg: #0c0e12;
   --bg: #050505;
 }
 
@@ -149,33 +151,37 @@ nav {
   background: var(--toggle-bg);
   color: var(--toggle-text);
   border-radius: 999px;
-  padding: 0.35rem 0.75rem 0.35rem 0.4rem;
+  padding: 0.25rem;
+  width: 48px;
+  height: 28px;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  justify-content: flex-start;
+  gap: 0;
   cursor: pointer;
   margin-left: 0.75rem;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  overflow: hidden;
 }
 
-.theme-toggle:hover { transform: translateY(-1px); }
+.theme-toggle:hover { transform: translateY(-1px); border-color: rgba(255,195,0,0.24); }
 
 .theme-toggle-track {
-  width: 46px;
-  height: 24px;
+  width: 100%;
+  height: 100%;
   border-radius: 999px;
   position: relative;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: transparent;
+  border: none;
   flex-shrink: 0;
 }
 
 .theme-toggle-thumb {
   position: absolute;
-  top: 2px;
-  left: 2px;
+  top: 3px;
+  left: 3px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -189,14 +195,9 @@ nav {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.35s ease, color 0.35s ease;
 }
 
-html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(22px); }
+html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
 
-.theme-toggle-label {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  white-space: nowrap;
-}
+.theme-toggle-label { display: none; }
 
 .hamburger {
   display: none;
@@ -300,6 +301,111 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(22px); }
   max-width: 1180px;
   margin: 0 auto;
   padding: 0 1.25rem 4rem;
+}
+
+.instagram-spotlight {
+  max-width: 1180px;
+  margin: -2.2rem auto 18px;
+  padding: 0 1.25rem;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 18px;
+}
+
+.spotlight-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 24px rgba(0,53,102,0.05);
+  overflow: hidden;
+}
+
+.spotlight-copy {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.spotlight-kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.spotlight-copy h2 {
+  margin-top: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  letter-spacing: -0.4px;
+}
+
+.spotlight-copy p {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.spotlight-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.spotlight-tag {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--brand-dim);
+  color: var(--accent-blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.spotlight-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.spotlight-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.spotlight-link.primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.spotlight-link.secondary {
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: transparent;
+}
+
+.spotlight-embed {
+  padding: 12px;
+}
+
+.spotlight-embed blockquote.instagram-media {
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
 }
 
 .selector-grid {
@@ -584,7 +690,7 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(22px); }
 
 .code-block {
   margin-top: 0.9rem;
-  background: #17110a;
+  background: var(--code-bg);
   color: #f7ead8;
   border-radius: 14px;
   padding: 1rem;
@@ -678,7 +784,7 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(22px); }
 .option-card code {
   display: block;
   margin-top: 0.85rem;
-  background: #17110a;
+  background: var(--code-bg);
   color: #f7ead8;
   border-radius: 12px;
   padding: 0.75rem;
@@ -700,6 +806,7 @@ footer {
 footer strong { color: #fff; }
 
 @media (max-width: 980px) {
+  .instagram-spotlight { grid-template-columns: 1fr; }
   .selector-grid { grid-template-columns: 1fr; }
   .option-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -727,6 +834,7 @@ footer strong { color: #fff; }
   .theme-toggle { padding: 0.35rem; margin-left: 0.5rem; }
   .theme-toggle-label { display: none; }
   .hero { padding: 5rem 1.1rem 3.5rem; }
+  .instagram-spotlight { margin-top: -1.4rem; padding-inline: 1rem; }
   .page-wrap { padding-inline: 1rem; }
   .selector-grid { margin-top: -1.4rem; }
   .preview-card,
@@ -763,8 +871,31 @@ footer strong { color: #fff; }
   <div class="hero-badges">
     <a class="hero-badge" href="#selector">Selector de embeds</a>
     <a class="hero-badge" href="#opciones">Opciones rápidas</a>
+    <a class="hero-badge" href="https://www.instagram.com/sabor_.mas58?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Instagram @sabor_.mas58</a>
     <a class="hero-badge" href="index.html">Volver al menú</a>
   </div>
+</section>
+
+<section class="instagram-spotlight" id="reel">
+  <article class="spotlight-card spotlight-copy">
+    <div>
+      <div class="spotlight-kicker">Instagram destacado</div>
+      <h2>Arepas al barril</h2>
+      <p>Este reel de la cuenta <strong>@sabor_.mas58</strong> puede vivir como portada social dentro de la web. Ya queda listo para que lo uses como referencia visual y de contenido.</p>
+      <div class="spotlight-tags">
+        <span class="spotlight-tag">Reel público</span>
+        <span class="spotlight-tag">Sabor +58</span>
+        <span class="spotlight-tag">Arepas</span>
+      </div>
+    </div>
+    <div class="spotlight-actions">
+      <a class="spotlight-link primary" href="https://www.instagram.com/sabor_.mas58?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Ver perfil</a>
+      <a class="spotlight-link secondary" href="#opciones">Ver embeds</a>
+    </div>
+  </article>
+  <article class="spotlight-card spotlight-embed">
+    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZC0ejZRE88/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
+  </article>
 </section>
 
 <div class="page-wrap" id="selector">
@@ -831,7 +962,7 @@ footer strong { color: #fff; }
       <div class="option-badge">IG</div>
       <h4>Instagram Reels</h4>
       <p>Usa el embed oficial si el reel es público y quieres mantener la experiencia nativa de Instagram.</p>
-      <code>&lt;blockquote class="instagram-media" ...&gt;</code>
+      <code>&lt;blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZC0ejZRE88/?utm_source=ig_embed&amp;utm_campaign=loading" ...&gt;</code>
     </article>
     <article class="option-card">
       <div class="option-badge">TT</div>
@@ -863,27 +994,25 @@ footer strong { color: #fff; }
 const PLATFORMS = {
   instagram: {
     label: 'Instagram',
-    title: 'Reels de Instagram',
-    intro: 'Ideal para reels públicos o publicaciones destacadas. El embed oficial conserva la apariencia nativa de Instagram.',
-    hint: 'Funciona mejor con reels públicos.',
+    title: 'Reel de Arepas al Barril',
+    intro: 'Este bloque usa el reel real de Arepas al Barril publicado en @sabor_.mas58.',
+    hint: 'Reel público de Instagram.',
     preview: `<div class="preview-visual preview-visual--instagram">
       <div class="preview-top">
         <span class="preview-chip">Instagram Reel</span>
         <span class="preview-chip alt">Embed oficial</span>
       </div>
       <div>
-        <h3>Reel nativo</h3>
-        <p>Pega el blockquote y el script oficial. Instagram lo convierte en una tarjeta embebida dentro de tu sitio.</p>
+        <h3>Arepas al barril</h3>
+        <p>El reel de @sabor_.mas58 entra aquí como portada social, listo para destacar el producto en la web.</p>
       </div>
     </div>`,
-    code: `<blockquote class="instagram-media"
-  data-instgrm-permalink="https://www.instagram.com/reel/REEL_ID/"
-  data-instgrm-version="14"></blockquote>
+    code: `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZC0ejZRE88/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
 <script async src="https://www.instagram.com/embed.js"><\/script>`,
     notes: [
-      'La cuenta y el reel deben ser públicos.',
-      'Pega la URL completa del reel.',
-      'Mejor si el contenido es vertical 9:16.'
+      'Perfil oficial: @sabor_.mas58.',
+      'Reel público: Arepas al barril.',
+      'Cambia la URL cuando publiques otro reel.'
     ]
   },
   tiktok: {
@@ -1065,6 +1194,13 @@ document.querySelectorAll('.platform-btn').forEach(btn => {
 document.getElementById('copyCodeBtn').addEventListener('click', copyCurrentCode);
 
 setPlatform(activePlatform);
+
+window.addEventListener('load', () => {
+  if (window.instgrm && window.instgrm.Embeds && typeof window.instgrm.Embeds.process === 'function') {
+    window.instgrm.Embeds.process();
+  }
+});
 </script>
+<script async defer src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
