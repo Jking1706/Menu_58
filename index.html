@@ -50,7 +50,7 @@
           >
         </div>
         <figure class="hero-photo" data-reveal>
-          <img src="Arepas/Arepas.jpeg" alt="Arepa de la casa con aguacate y carne al barril" />
+          <img src="Arepas/Arepas%202.jpeg" alt="Arepa de la casa con aguacate y carne al barril" />
         </figure>
       </section>
 
@@ -91,7 +91,7 @@
             <div class="dish-grid">
               <figure class="dish-card">
                 <img
-                  src="Arepas/Arepas%201.jpeg"
+                  src="Arepas/Arepas.jpeg"
                   alt="Arepa de la casa con queso derretido y carne al barril"
                 />
                 <figcaption>Arepa de la Casa (carne al barril)</figcaption>
@@ -341,24 +341,174 @@
 
       <section class="section" id="galeria">
         <div class="section-title" data-reveal>
-          <h2>Galeria real de la casa</h2>
-          <p>Fotos reales de nuestras arepas, directo desde la cocina de Sabor +58.</p>
+          <h2>Contenido visual</h2>
+          <p>Fotos, reels, TikToks y videos para mostrar la cocina en acción.</p>
         </div>
-        <div class="gallery-grid">
-          <div class="gallery-slider" id="gallerySlider" data-reveal>
-            <button class="slider-btn prev" id="galleryPrev" aria-label="Imagen anterior">‹</button>
-            <div class="slides" id="gallerySlides">
-              <figure class="gallery-card is-active"><img src="Arepas/Arepas.jpeg" alt="Arepa principal de la casa" /></figure>
-              <figure class="gallery-card"><img src="Arepas/Arepas%201.jpeg" alt="Arepa en primer plano" /></figure>
-              <figure class="gallery-card"><img src="Arepas/Arepas%202.jpeg" alt="Arepa con aguacate y carne" /></figure>
-              <figure class="gallery-card"><img src="Arepas/Arepas%203.jpeg" alt="Plato de arepas artesanales" /></figure>
-              <figure class="gallery-card"><img src="Arepas/Arepas%204.jpeg" alt="Arepas con topping de platano" /></figure>
-              <figure class="gallery-card"><img src="Arepas/Arepas%205.jpeg" alt="Arepa abierta lista para servir" /></figure>
-              <figure class="gallery-card"><img src="Arepas/Arepas%206.jpeg" alt="Plato con varias arepas de la casa" /></figure>
-              <figure class="gallery-card"><img src="Arepas/Arepas%207.jpeg" alt="Arepa siendo sostenida para mostrar relleno" /></figure>
+        <div class="content-tabs" role="tablist" aria-label="Secciones de contenido" data-reveal>
+          <button class="content-tab active" type="button" role="tab" aria-selected="true" aria-controls="panel-fotos" id="tab-fotos" data-content-tab="fotos">Fotos</button>
+          <button class="content-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-reels" id="tab-reels" data-content-tab="reels">Reels</button>
+          <button class="content-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-tiktok" id="tab-tiktok" data-content-tab="tiktok">TikTok</button>
+          <button class="content-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-videos" id="tab-videos" data-content-tab="videos">Videos</button>
+        </div>
+
+        <div class="content-panel active" id="panel-fotos" role="tabpanel" aria-labelledby="tab-fotos" data-content-panel="fotos">
+          <div class="content-panel-header" data-reveal>
+            <div>
+              <p class="content-eyebrow">Arepa de la casa</p>
+              <h3>Fotos reales de la cocina</h3>
+              <p>La foto principal sale de la carpeta de arepas para mantener el menú bien apetitoso.</p>
             </div>
-            <button class="slider-btn next" id="galleryNext" aria-label="Imagen siguiente">›</button>
-            <div class="slider-dots" id="galleryDots" aria-label="Navegacion de galeria"></div>
+            <span class="content-chip">Listo para redes</span>
+          </div>
+
+          <div class="gallery-grid">
+            <div class="gallery-slider" id="gallerySlider" data-reveal>
+              <button class="slider-btn prev" id="galleryPrev" aria-label="Imagen anterior">‹</button>
+              <div class="slides" id="gallerySlides">
+                <figure class="gallery-card is-active"><img src="Arepas/Arepas.jpeg" alt="Arepa principal de la casa" /></figure>
+                <figure class="gallery-card"><img src="Arepas/Arepas%201.jpeg" alt="Arepa en primer plano" /></figure>
+                <figure class="gallery-card"><img src="Arepas/Arepas%202.jpeg" alt="Arepa con aguacate y carne" /></figure>
+                <figure class="gallery-card"><img src="Arepas/Arepas%203.jpeg" alt="Plato de arepas artesanales" /></figure>
+                <figure class="gallery-card"><img src="Arepas/Arepas%204.jpeg" alt="Arepas con topping de platano" /></figure>
+                <figure class="gallery-card"><img src="Arepas/Arepas%205.jpeg" alt="Arepa abierta lista para servir" /></figure>
+                <figure class="gallery-card"><img src="Arepas/Arepas%206.jpeg" alt="Plato con varias arepas de la casa" /></figure>
+                <figure class="gallery-card"><img src="Arepas/Arepas%207.jpeg" alt="Arepa siendo sostenida para mostrar relleno" /></figure>
+              </div>
+              <button class="slider-btn next" id="galleryNext" aria-label="Imagen siguiente">›</button>
+              <div class="slider-dots" id="galleryDots" aria-label="Navegacion de galeria"></div>
+            </div>
+
+            <aside class="content-side" data-reveal>
+              <article class="content-featured">
+                <img src="Arepas/Arepas.jpeg" alt="Arepa de la casa servida en mano" loading="lazy" decoding="async" />
+                <div>
+                  <p class="content-eyebrow">Foto destacada</p>
+                  <h4>Arepa de la Casa</h4>
+                  <p>La imagen que puedes usar en portada, stories y publicaciones.</p>
+                </div>
+              </article>
+
+              <div class="content-thumb-grid">
+                <figure class="content-thumb"><img src="Arepas/Arepas%203.jpeg" alt="Arepa en primer plano" loading="lazy" decoding="async" /><figcaption>Cierre de producto</figcaption></figure>
+                <figure class="content-thumb"><img src="Arepas/Arepas%205.jpeg" alt="Arepa abierta lista para servir" loading="lazy" decoding="async" /><figcaption>Detalle del relleno</figcaption></figure>
+                <figure class="content-thumb"><img src="Arepas/Arepas%207.jpeg" alt="Arepa sostenida para mostrar relleno" loading="lazy" decoding="async" /><figcaption>Foto para historias</figcaption></figure>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <div class="content-panel" id="panel-reels" role="tabpanel" aria-labelledby="tab-reels" data-content-panel="reels" hidden>
+          <div class="content-panel-header" data-reveal>
+            <div>
+              <p class="content-eyebrow">Instagram</p>
+              <h3>Reels listos para incrustar</h3>
+              <p>Usa este bloque para el detrás de cámaras, armado de arepas o promociones.</p>
+            </div>
+            <span class="content-chip">Formato vertical</span>
+          </div>
+
+          <div class="media-grid">
+            <article class="media-card" data-reveal>
+              <div class="media-visual media-visual-instagram">
+                <img src="Arepas/Arepas%201.jpeg" alt="Preview de reel de Instagram" loading="lazy" decoding="async" />
+                <span class="media-badge">Instagram Reel</span>
+              </div>
+              <div class="media-copy">
+                <h4>Reel 01</h4>
+                <p>Reemplaza este bloque por el embed del reel o por tu enlace público.</p>
+                <small>Ideal para mostrar el armado de la Arepa de la Casa.</small>
+              </div>
+            </article>
+
+            <article class="media-card" data-reveal>
+              <div class="media-visual media-visual-instagram">
+                <img src="Arepas/Arepas%204.jpeg" alt="Preview de reel de cocina" loading="lazy" decoding="async" />
+                <span class="media-badge">Instagram Reel</span>
+              </div>
+              <div class="media-copy">
+                <h4>Reel 02</h4>
+                <p>Espacio perfecto para contenido de cocina, salsas o promociones flash.</p>
+                <small>Deja aquí un embed de 9:16.</small>
+              </div>
+            </article>
+
+            <article class="media-card" data-reveal>
+              <div class="media-visual media-visual-instagram">
+                <img src="Arepas/Arepas%206.jpeg" alt="Preview de reel final" loading="lazy" decoding="async" />
+                <span class="media-badge">Instagram Reel</span>
+              </div>
+              <div class="media-copy">
+                <h4>Reel 03</h4>
+                <p>Otro slot para un reel de producto, testimonios o servicio al cliente.</p>
+                <small>Si me pasas el link, lo dejo embebido.</small>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="content-panel" id="panel-tiktok" role="tabpanel" aria-labelledby="tab-tiktok" data-content-panel="tiktok" hidden>
+          <div class="content-panel-header" data-reveal>
+            <div>
+              <p class="content-eyebrow">TikTok</p>
+              <h3>Videos cortos para alcance rápido</h3>
+              <p>Un bloque dedicado para videos virales, recetas rápidas y clips del local.</p>
+            </div>
+            <span class="content-chip">9:16</span>
+          </div>
+
+          <div class="media-grid media-grid-two">
+            <article class="media-card" data-reveal>
+              <div class="media-visual media-visual-tiktok">
+                <img src="Arepas/Arepas%202.jpeg" alt="Preview de TikTok de arepa" loading="lazy" decoding="async" />
+                <span class="media-badge">TikTok</span>
+              </div>
+              <div class="media-copy">
+                <h4>TikTok 01</h4>
+                <p>Para un clip dinámico de cocina, cortes rápidos o reacción del cliente.</p>
+                <small>Inserta aquí el embed oficial de TikTok.</small>
+              </div>
+            </article>
+
+            <article class="media-card" data-reveal>
+              <div class="media-visual media-visual-tiktok">
+                <img src="Arepas/Arepas%205.jpeg" alt="Preview de TikTok de cocina" loading="lazy" decoding="async" />
+                <span class="media-badge">TikTok</span>
+              </div>
+              <div class="media-copy">
+                <h4>TikTok 02</h4>
+                <p>Espacio para promociones, combos y videos con música de tendencia.</p>
+                <small>Ideal para campañas de fin de semana.</small>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="content-panel" id="panel-videos" role="tabpanel" aria-labelledby="tab-videos" data-content-panel="videos" hidden>
+          <div class="content-panel-header" data-reveal>
+            <div>
+              <p class="content-eyebrow">Video embed</p>
+              <h3>Videos largos o clips del menú</h3>
+              <p>Sirve para YouTube, Facebook, MP4 local o cualquier iframe que quieras publicar.</p>
+            </div>
+            <span class="content-chip">Embed flexible</span>
+          </div>
+
+          <div class="video-grid">
+            <article class="video-card" data-reveal>
+              <div class="video-placeholder">
+                <span>▶</span>
+                <strong>Embed de video</strong>
+                <p>Coloca aquí un iframe de YouTube o un video local.</p>
+              </div>
+            </article>
+
+            <article class="video-card" data-reveal>
+              <div class="video-placeholder">
+                <span>▶</span>
+                <strong>Segundo espacio</strong>
+                <p>Perfecto para recetas, eventos o testimonios de clientes.</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>

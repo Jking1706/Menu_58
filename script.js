@@ -560,6 +560,34 @@ function setupGallerySlider() {
   resetAutoplay();
 }
 
+function setupContentTabs() {
+  const tabButtons = Array.from(document.querySelectorAll("[data-content-tab]"));
+  const panels = Array.from(document.querySelectorAll("[data-content-panel]"));
+
+  if (!tabButtons.length || !panels.length) return;
+
+  function activateTab(key) {
+    tabButtons.forEach((button) => {
+      const isActive = button.dataset.contentTab === key;
+      button.classList.toggle("active", isActive);
+      button.setAttribute("aria-selected", String(isActive));
+    });
+
+    panels.forEach((panel) => {
+      const isActive = panel.dataset.contentPanel === key;
+      panel.classList.toggle("active", isActive);
+      panel.hidden = !isActive;
+    });
+  }
+
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => activateTab(button.dataset.contentTab));
+  });
+
+  const initialTab = tabButtons.find((button) => button.classList.contains("active"))?.dataset.contentTab || tabButtons[0].dataset.contentTab;
+  activateTab(initialTab);
+}
+
 calculateBtn?.addEventListener("click", calculateCombo);
 orderWhatsappBtn?.addEventListener("click", sendOrderToWhatsApp);
 newOrderBtn?.addEventListener("click", resetOrderForm);
@@ -573,5 +601,6 @@ setupRevealAnimations();
 setupScrollEffects();
 setupCardTilt();
 setupGallerySlider();
+setupContentTabs();
 calculateCombo();
 updateOrderHint();
