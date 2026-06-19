@@ -1,0 +1,68 @@
+## 🍔 Hamburguesas
+* **Hamburguesa Sencilla**
+    * **Ingredientes:** Carne artesanal, lechuga, tomate, papas y salsas.
+    * **Precio:** \$12.000.
+* **Hamburguesa Especial**
+    * **Ingredientes:** Carne artesanal, lechuga, tomate, papas, jamón, huevo, queso mozzarella, tocineta y salsas.
+    * **Precio:** \$17.000.
+* **Hamburguesa de la Casa**
+    * **Ingredientes:** Carne artesanal, pechuga, lechuga, tomate, papas, huevo, tocineta, jamón, queso mozzarella, aguacate y salsas.
+    * **Precio:** \$22.000.
+* **Hamburguesa Pig**
+    * **Ingredientes:** Carne artesanal, chuleta de cerdo ahumada, huevo, tocineta, jamón, queso mozzarella, lechuga, tomate, papas y salsas.
+    * **Precio:** \$24.000.
+* **Hamburguesa Trifásica**
+    * **Ingredientes:** Carne artesanal, pollo, chuleta de cerdo ahumada o carne al barril, huevo, tocineta, jamón, queso mozzarella, lechuga, tomate, papas y salsas.
+    * **Precio:** \$30.000.
+
+---
+
+## 🌭 Perros Calientes
+* **Perro Pequeño Sencillo**
+    * **Ingredientes:** Papas, salchicha, ensalada, salsas y queso amarillo.
+    * **Precio:** \$6.000.
+* **Perro Grande Sencillo**
+    * **Ingredientes:** Papas, salchicha, ensalada, salsas y queso amarillo.
+    * **Precio:** \$11.000.
+* **Perro Especial**
+    * **Ingredientes:** Papas, salchicha, ensalada, jamón, queso mozzarella, tocineta, salsas y queso amarillo.
+    * **Precio:** \$14.000.
+* **Combo de Perros Clásico**
+    * **Ingredientes/Contenido:** 2 Perros Pequeños + Gaseosa (250 ml). Los perros incluyen papas, salchicha, salsas y queso de año.
+    * **Precio:** \$12.000.
+* **Perro de la Casa**
+    * **Ingredientes:** Papas, salchicha, ensalada, jamón, queso mozzarella, tocineta, salsas y queso amarillo. Incluye una opción de proteína a escoger: Carne al barril, carne desmechada o pollo.
+    * **Precio:** \$19.000.
+* **Perro Súper Especial**
+    * **Ingredientes:** Salchicha americana, ensalada, papas, queso mozzarella, jamón, tocineta, queso amarillo y salsas.
+    * **Precio:** \$19.000.
+
+---
+
+## 🫓 Arepas Venezolanas
+* **Arepa Dominó**
+    * **Ingredientes:** Caraotas negras, queso blanco rallado y aguacate.
+    * **Precio:** \$10.000.
+* **Arepa La Pelúa**
+    * **Ingredientes:** Carne desmechada y aguacate.
+    * **Precios:**
+        * Con queso costeño: \$14.000.
+        * Con queso mozzarella: \$15.000.
+* **Arepa Reina Pepiada**
+    * **Ingredientes:** Pollo desmechado con aguacate y mayonesa.
+    * **Precios:**
+        * Con queso costeño: \$14.000.
+        * Con queso mozzarella: \$15.000.
+* **Arepa de Chicharrón**
+    * **Ingredientes:** Chicharrón, maduro, queso costeño y aguacate.
+    * **Precio:** \$14.000.
+* **Arepa Pabellón**
+    * **Ingredientes:** Carne mechada, caraotas negras, plátano maduro y queso.
+    * **Precios:**
+        * Con queso costeño: \$15.000.
+        * Con queso mozzarella: \$16.000.
+* **Arepa de la Casa**
+    * **Ingredientes:** Carne al barril, queso y aguacate.
+    * **Precios:**
+        * Con queso costeño: \$15.000.
+        * Con queso mozzarella: \$16.000.

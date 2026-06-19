@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabor +58 — Redes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+(() => {
+  try {
+    const saved = localStorage.getItem('sabor58-theme');
+    const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+  } catch (error) {
+    document.documentElement.dataset.theme = 'light';
+    document.documentElement.style.colorScheme = 'light';
+  }
+})();
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease, fill 0.35s ease, stroke 0.35s ease, transform 0.25s ease; }
+
+:root {
+  --brand: #D72638;
+  --brand-light: #FFC300;
+  --brand-dim: rgba(255,195,0,0.18);
+  --brand-blue: #003566;
+  --brand-black: #1A1A1A;
+  --dark: #1A1A1A;
+  --dark2: #003566;
+  --page-bg: #FFFFFF;
+  --nav-bg: rgba(0,53,102,0.97);
+  --hero-bg: radial-gradient(circle at top right, rgba(215,38,56,0.28), transparent 26%), radial-gradient(circle at 15% 20%, rgba(255,195,0,0.16), transparent 20%), linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-black) 100%);
+  --hero-text: #FFFFFF;
+  --hero-note: rgba(255,255,255,0.82);
+  --accent-blue: #003566;
+  --toggle-bg: rgba(255,255,255,0.08);
+  --toggle-border: rgba(255,255,255,0.14);
+  --toggle-text: #FFFFFF;
+  --toggle-thumb: #FFC300;
+  --toggle-thumb-text: #1A1A1A;
+  --code-bg: #17110a;
+  --text: #1A1A1A;
+  --muted: #5D6470;
+  --border: rgba(0,53,102,0.14);
+  --card-bg: #ffffff;
+  --bg: #ffffff;
+  --radius: 16px;
+}
+
+html[data-theme="dark"] {
+  --page-bg: #050505;
+  --nav-bg: rgba(7,7,8,0.88);
+  --hero-bg: radial-gradient(circle at top right, rgba(215,38,56,0.18), transparent 22%), radial-gradient(circle at 20% 18%, rgba(255,195,0,0.08), transparent 18%), linear-gradient(135deg, #050505 0%, #090a0d 100%);
+  --hero-text: #FFFFFF;
+  --hero-note: rgba(255,255,255,0.82);
+  --accent-blue: #B5C3D8;
+  --toggle-bg: rgba(255,255,255,0.04);
+  --toggle-border: rgba(255,255,255,0.10);
+  --toggle-text: #FFFFFF;
+  --toggle-thumb: #FFFFFF;
+  --toggle-thumb-text: #1A1A1A;
+  --code-bg: #0b0c0f;
+  --text: #F4F7FB;
+  --muted: #A6ADBB;
+  --border: rgba(255,255,255,0.08);
+  --card-bg: #0c0e12;
+  --bg: #050505;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--page-bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background-color 0.45s ease, color 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 56px;
+  border-bottom: 0.5px solid rgba(255,255,255,0.08);
+}
+
+.nav-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.nav-logo span { color: var(--brand-light); }
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 0;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.78);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0 1rem;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover { color: var(--brand-light); border-bottom-color: var(--brand-light); }
+
+.nav-wa {
+  background: var(--brand-light);
+  color: var(--brand-black) !important;
+  border-radius: 20px;
+  padding: 0 1rem !important;
+  height: 32px !important;
+  font-size: 12px !important;
+  border-bottom: none !important;
+  margin-left: 0.5rem;
+  font-weight: 700;
+}
+
+.nav-wa:hover { background: var(--brand) !important; color: #fff !important; }
+
+.theme-toggle {
+  border: 1px solid var(--toggle-border);
+  background: var(--toggle-bg);
+  color: var(--toggle-text);
+  border-radius: 999px;
+  padding: 0.25rem;
+  width: 48px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  cursor: pointer;
+  margin-left: 0.75rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+.theme-toggle:hover { transform: translateY(-1px); border-color: rgba(255,195,0,0.24); }
+
+.theme-toggle-track {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  position: relative;
+  background: transparent;
+  border: none;
+  flex-shrink: 0;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--toggle-thumb);
+  color: var(--toggle-thumb-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.35s ease, color 0.35s ease;
+}
+
+html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
+
+.theme-toggle-label { display: none; }
+
+.is-hidden { display: none !important; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 2px;
+}
+
+.hero {
+  background: var(--hero-bg);
+  padding: 6rem 1.25rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--brand) 0 33%, var(--brand-light) 33% 66%, var(--brand-blue) 66% 100%);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -1px 0;
+  height: 60px;
+  background: var(--page-bg);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+.hero-kicker {
+  color: var(--brand-light);
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.hero h1 {
+  margin-top: 0.75rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  line-height: 0.95;
+  color: var(--hero-text);
+  letter-spacing: -2px;
+}
+
+.hero h1 em {
+  color: var(--brand-light);
+  font-style: normal;
+}
+
+.hero-copy {
+  max-width: 780px;
+  margin: 1rem auto 0;
+  color: var(--hero-note);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-badge {
+  background: rgba(255,255,255,0.06);
+  border: 0.5px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.76);
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.hero-badge:hover {
+  background: var(--brand-light);
+  color: var(--brand-black);
+  border-color: rgba(255,195,0,0.45);
+}
+
+.page-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
+
+.instagram-spotlight {
+  max-width: 1180px;
+  margin: -2.2rem auto 18px;
+  padding: 0 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.spotlight-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 24px rgba(0,53,102,0.05);
+  overflow: hidden;
+}
+
+.spotlight-copy {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.spotlight-kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.spotlight-copy h2 {
+  margin-top: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  letter-spacing: -0.4px;
+}
+
+.spotlight-copy p {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.spotlight-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.spotlight-tag {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--brand-dim);
+  color: var(--accent-blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.spotlight-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.spotlight-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.spotlight-link.primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.spotlight-link.secondary {
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: transparent;
+}
+
+.spotlight-embed {
+  padding: 12px;
+}
+
+.spotlight-feed {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.spotlight-frame-title {
+  padding: 1rem 1rem 0;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.spotlight-embed blockquote.instagram-media {
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.selector-grid {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 18px;
+  margin-top: -2.2rem;
+}
+
+.selector-panel,
+.social-panel,
+.option-card,
+.tip-banner {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.selector-panel {
+  padding: 1rem;
+  box-shadow: 0 10px 24px rgba(0,53,102,0.05);
+}
+
+.panel-kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.panel-title {
+  margin-top: 0.35rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.45rem;
+  color: var(--text);
+}
+
+.panel-subtitle {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.platform-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.platform-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.95rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s, background 0.18s;
+}
+
+.platform-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent-blue);
+  box-shadow: 0 8px 18px rgba(0,53,102,0.05);
+}
+
+.platform-btn.active {
+  background: linear-gradient(135deg, rgba(255,195,0,0.16) 0%, var(--card-bg) 100%);
+  border-color: rgba(215,38,56,0.32);
+  box-shadow: 0 10px 24px rgba(215,38,56,0.12);
+}
+
+.platform-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--brand-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+
+.platform-btn strong {
+  display: block;
+  color: var(--text);
+  font-size: 14px;
+  margin-bottom: 2px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.platform-btn span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.platform-btn small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.tip-banner {
+  margin-top: 1rem;
+  padding: 0.85rem 0.95rem;
+  background: linear-gradient(135deg, rgba(255,195,0,0.12) 0%, var(--card-bg) 100%);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+  border-color: var(--border);
+}
+
+.tip-banner strong { color: var(--text); }
+
+.social-panel {
+  box-shadow: 0 10px 24px rgba(0,53,102,0.05);
+  overflow: hidden;
+}
+
+.social-panel-head {
+  padding: 1.25rem 1.25rem 0;
+}
+
+.social-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--brand-dim);
+  color: var(--accent-blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.social-panel h2 {
+  margin-top: 0.65rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  letter-spacing: -0.5px;
+}
+
+.social-panel p {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.preview-card {
+  margin: 1.1rem 1.25rem 0;
+  min-height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.preview-visual {
+  min-height: 280px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.preview-top {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.preview-chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.12);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.preview-chip.alt { background: rgba(0,0,0,0.18); }
+
+.preview-visual h3 {
+  margin-top: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 2.1rem;
+  line-height: 1;
+}
+
+.preview-visual p {
+  margin-top: 0.65rem;
+  max-width: 24rem;
+  color: rgba(255,255,255,0.78);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.preview-visual--instagram {
+  background:
+    radial-gradient(circle at top right, rgba(225,48,108,0.42), transparent 28%),
+    radial-gradient(circle at 15% 24%, rgba(240,160,90,0.25), transparent 24%),
+    linear-gradient(135deg, #2b1320 0%, #150f0c 100%);
+}
+
+.preview-visual--tiktok {
+  background:
+    radial-gradient(circle at top right, rgba(37,244,238,0.22), transparent 30%),
+    radial-gradient(circle at 15% 24%, rgba(255,0,80,0.24), transparent 24%),
+    linear-gradient(135deg, #10141a 0%, #07090c 100%);
+}
+
+.preview-visual--youtube {
+  background:
+    radial-gradient(circle at top right, rgba(255,0,0,0.26), transparent 30%),
+    radial-gradient(circle at 15% 24%, rgba(240,160,90,0.22), transparent 24%),
+    linear-gradient(135deg, #2a0c0c 0%, #120606 100%);
+}
+
+.preview-visual--video {
+  background:
+    radial-gradient(circle at top right, rgba(200,101,26,0.34), transparent 28%),
+    radial-gradient(circle at 15% 24%, rgba(255,255,255,0.1), transparent 24%),
+    linear-gradient(135deg, #2a1a0f 0%, #120b06 100%);
+}
+
+.code-card {
+  margin: 1.1rem 1.25rem 1.25rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1rem;
+}
+
+.code-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.code-head strong {
+  display: block;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.code-head small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.copy-btn {
+  border: 1px solid rgba(215,38,56,0.25);
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff;
+  padding: 0.6rem 0.95rem;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.copy-btn:hover { background: var(--brand-light); color: var(--brand-black); }
+
+.code-block {
+  margin-top: 0.9rem;
+  background: var(--code-bg);
+  color: #f7ead8;
+  border-radius: 14px;
+  padding: 1rem;
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow: auto;
+}
+
+.note-list {
+  margin-top: 0.9rem;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.note-list li {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.8rem 0.9rem;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.option-section {
+  padding: 1.25rem 1.25rem 4rem;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.section-title {
+  margin-bottom: 1rem;
+}
+
+.section-title h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.9rem;
+  letter-spacing: -0.4px;
+}
+
+.section-title p {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.option-card {
+  padding: 1rem;
+  box-shadow: 0 8px 18px rgba(0,53,102,0.04);
+}
+
+.option-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--brand-dim);
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+}
+
+.option-card h4 {
+  font-size: 15px;
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.option-card p {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.option-card code {
+  display: block;
+  margin-top: 0.85rem;
+  background: var(--code-bg);
+  color: #f7ead8;
+  border-radius: 12px;
+  padding: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+  font-size: 11px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.72);
+  text-align: center;
+  padding: 2rem;
+  font-size: 12px;
+}
+
+footer strong { color: #fff; }
+
+@media (max-width: 980px) {
+  .spotlight-feed { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .selector-grid { grid-template-columns: 1fr; }
+  .option-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 700px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: var(--nav-bg);
+    padding: 1rem 0 1.5rem;
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  }
+  .nav-links.open a {
+    height: 44px;
+    padding: 0 2rem;
+    border-bottom: 0.5px solid rgba(255,255,255,0.05);
+    justify-content: flex-start;
+  }
+  .hamburger { display: flex; }
+  .theme-toggle { padding: 0.35rem; margin-left: 0.5rem; }
+  .theme-toggle-label { display: none; }
+  .hero { padding: 5rem 1.1rem 3.5rem; }
+  .instagram-spotlight { margin-top: -1.4rem; padding-inline: 1rem; }
+  .spotlight-feed { grid-template-columns: 1fr; }
+  .page-wrap { padding-inline: 1rem; }
+  .selector-grid { margin-top: -1.4rem; }
+  .preview-card,
+  .code-card { margin-inline: 1rem; }
+  .option-section { padding-inline: 1rem; }
+  .option-grid { grid-template-columns: 1fr; }
+  .code-head { align-items: flex-start; flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">Sabor <span>+58</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" onclick="closeMobile();">Menú</a></li>
+    <li><a href="#selector" onclick="closeMobile();">Embeds</a></li>
+    <li><a href="#opciones" onclick="closeMobile();">Resumen</a></li>
+    <li><a href="https://wa.me/573043753966" target="_blank" rel="noopener noreferrer" class="nav-wa" onclick="closeMobile();">WhatsApp ↗</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Cambiar tema">
+    <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb" id="themeThumb">☾</span></span>
+    <span class="theme-toggle-label" id="themeToggleLabel">Oscuro</span>
+  </button>
+  <button class="hamburger" id="hamburger" aria-label="Menú" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero">
+  <div class="hero-kicker">Contenido para redes</div>
+  <h1>Reels, clips y <em>embeds</em></h1>
+  <p class="hero-copy">Esta subpágina reúne varias formas de mostrar contenido de Instagram, TikTok, YouTube Shorts o video propio. Elige el formato que mejor te funcione y pega el código en la parte correspondiente de tu sitio.</p>
+  <div class="hero-badges">
+    <a class="hero-badge" href="https://www.instagram.com/sabor_.mas58?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Instagram @sabor_.mas58</a>
+    <a class="hero-badge" href="index.html">Volver al menú</a>
+  </div>
+</section>
+
+<section class="instagram-spotlight is-hidden" id="reel">
+  <article class="spotlight-card spotlight-copy">
+    <div>
+      <div class="spotlight-kicker">Instagram destacado</div>
+      <h2>Arepas al barril</h2>
+      <p>Este reel de la cuenta <strong>@sabor_.mas58</strong> puede vivir como portada social dentro de la web. Ya queda listo para que lo uses como referencia visual y de contenido.</p>
+      <div class="spotlight-tags">
+        <span class="spotlight-tag">Reel público</span>
+        <span class="spotlight-tag">Sabor +58</span>
+        <span class="spotlight-tag">Arepas</span>
+      </div>
+    </div>
+    <div class="spotlight-actions">
+      <a class="spotlight-link primary" href="https://www.instagram.com/sabor_.mas58?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Ver perfil</a>
+      <a class="spotlight-link secondary" href="#opciones">Ver embeds</a>
+    </div>
+  </article>
+  <div class="spotlight-feed">
+    <article class="spotlight-card spotlight-embed">
+      <div class="spotlight-frame-title">Arepas al barril</div>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZC0ejZRE88/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; box-shadow:0 10px 26px rgba(0,0,0,0.14); margin:0; width:100%; padding:0;"></blockquote>
+    </article>
+    <article class="spotlight-card spotlight-embed">
+      <div class="spotlight-frame-title">Perros y hamburguesas</div>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DZC3-hCkZpm/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; box-shadow:0 10px 26px rgba(0,0,0,0.14); margin:0; width:100%; padding:0;"></blockquote>
+    </article>
+    <article class="spotlight-card spotlight-embed">
+      <div class="spotlight-frame-title">Preparación de pepito</div>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZY0MorNXQl/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; box-shadow:0 10px 26px rgba(0,0,0,0.14); margin:0; width:100%; padding:0;"></blockquote>
+    </article>
+  </div>
+</section>
+
+<div class="page-wrap is-hidden" id="selector">
+  <div class="selector-grid">
+    <aside class="selector-panel">
+      <div class="panel-kicker">Formatos</div>
+      <div class="panel-title">Elige el embed</div>
+      <p class="panel-subtitle">La izquierda cambia la vista previa y el snippet de código. La derecha muestra cómo se vería el bloque en tu página.</p>
+
+      <div class="platform-list">
+        <button class="platform-btn active" type="button" data-platform="instagram">
+          <span class="platform-icon">📸</span>
+          <span><strong>Instagram Reels</strong><small>Embed nativo para reels públicos.</small></span>
+        </button>
+        <button class="platform-btn" type="button" data-platform="tiktok">
+          <span class="platform-icon">🎵</span>
+          <span><strong>TikTok</strong><small>Ideal para clips cortos con alcance móvil.</small></span>
+        </button>
+        <button class="platform-btn" type="button" data-platform="youtube">
+          <span class="platform-icon">▶</span>
+          <span><strong>YouTube Shorts</strong><small>Iframe estable para video vertical.</small></span>
+        </button>
+        <button class="platform-btn" type="button" data-platform="video">
+          <span class="platform-icon">🎬</span>
+          <span><strong>Video propio</strong><small>HTML5 video para tener control total.</small></span>
+        </button>
+      </div>
+
+      <div class="tip-banner"><strong>Tip:</strong> si el contenido es público, usa el embed oficial. Si quieres cero dependencias, sube el MP4 y usa el reproductor nativo.</div>
+    </aside>
+
+    <article class="social-panel">
+      <div class="social-panel-head">
+        <span class="social-chip" id="platformLabel">Instagram</span>
+        <h2 id="platformTitle">Reels de Instagram</h2>
+        <p id="platformIntro">Ideal para reels públicos o publicaciones destacadas. El embed oficial conserva la apariencia nativa de Instagram.</p>
+      </div>
+
+      <div class="preview-card" id="platformPreview"></div>
+
+      <div class="code-card">
+        <div class="code-head">
+          <div>
+            <strong>Embed listo para pegar</strong>
+            <small id="platformHint">Funciona mejor con reels públicos.</small>
+          </div>
+          <button class="copy-btn" id="copyCodeBtn" type="button">Copiar código</button>
+        </div>
+        <pre class="code-block" id="platformCode"></pre>
+        <ul class="note-list" id="platformNotes"></ul>
+      </div>
+    </article>
+  </div>
+</div>
+
+<section class="option-section is-hidden" id="opciones">
+  <div class="section-title">
+    <h3>Reels listos</h3>
+    <p>Publicaciones ya preparadas para mostrar comida, proceso y marca.</p>
+  </div>
+
+  <div class="option-grid">
+    <article class="option-card">
+      <div class="option-badge">01</div>
+      <h4>Arepas al barril</h4>
+      <p>Video protagonista para abrir la página de redes con el producto más visible.</p>
+      <code>&lt;blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZC0ejZRE88/?utm_source=ig_embed&amp;utm_campaign=loading" ...&gt;</code>
+    </article>
+    <article class="option-card">
+      <div class="option-badge">02</div>
+      <h4>Perros y hamburguesas</h4>
+      <p>Publicación para mostrar variedad, volumen y sabor de la línea rápida.</p>
+      <code>&lt;blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DZC3-hCkZpm/?utm_source=ig_embed&amp;utm_campaign=loading" ...&gt;</code>
+    </article>
+    <article class="option-card">
+      <div class="option-badge">03</div>
+      <h4>Preparación de pepito</h4>
+      <p>Contenido de proceso que vende de forma natural y muestra cocina en movimiento.</p>
+      <code>&lt;blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZY0MorNXQl/?utm_source=ig_embed&amp;utm_campaign=loading" ...&gt;</code>
+    </article>
+    <article class="option-card">
+      <div class="option-badge">IG</div>
+      <h4>Perfil oficial</h4>
+      <p>Enlace directo a la cuenta para que el usuario siga la marca sin salir de contexto.</p>
+      <code>https://www.instagram.com/sabor_.mas58</code>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <strong>Sabor +58</strong> · Redes y contenido corto · Pereira, Colombia<br>
+  <span style="margin-top:4px;display:block;">Volver al menú: <a href="index.html" style="color:inherit;">index.html</a> · WhatsApp: +57 304 375 3966</span>
+</footer>
+
+<script>
+const PLATFORMS = {
+  instagram: {
+    label: 'Instagram',
+    title: 'Reel de Arepas al Barril',
+    intro: 'Este bloque usa el reel real de Arepas al Barril publicado en @sabor_.mas58.',
+    hint: 'Reel público de Instagram.',
+    preview: `<div class="preview-visual preview-visual--instagram">
+      <div class="preview-top">
+        <span class="preview-chip">Instagram Reel</span>
+        <span class="preview-chip alt">Embed oficial</span>
+      </div>
+      <div>
+        <h3>Arepas al barril</h3>
+        <p>El reel de @sabor_.mas58 entra aquí como portada social, listo para destacar el producto en la web.</p>
+      </div>
+    </div>`,
+    code: `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZC0ejZRE88/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+<script async src="https://www.instagram.com/embed.js"><\/script>`,
+    notes: [
+      'Perfil oficial: @sabor_.mas58.',
+      'Reel público: Arepas al barril.',
+      'Cambia la URL cuando publiques otro reel.'
+    ]
+  },
+  tiktok: {
+    label: 'TikTok',
+    title: 'Video de TikTok',
+    intro: 'Muy útil para clips cortos. El bloque oficial de TikTok hace el render automático del video.',
+    hint: 'Funciona mejor con videos públicos.',
+    preview: `<div class="preview-visual preview-visual--tiktok">
+      <div class="preview-top">
+        <span class="preview-chip">TikTok</span>
+        <span class="preview-chip alt">Embed oficial</span>
+      </div>
+      <div>
+        <h3>Clip vertical</h3>
+        <p>Úsalo cuando quieras mostrar el contenido tal cual sale en TikTok y mantener la interacción de la plataforma.</p>
+      </div>
+    </div>`,
+    code: `<blockquote class="tiktok-embed"
+  cite="https://www.tiktok.com/@usuario/video/VIDEO_ID"
+  data-video-id="VIDEO_ID"
+  style="max-width: 605px; min-width: 325px;">
+  <section></section>
+</blockquote>
+<script async src="https://www.tiktok.com/embed.js"><\/script>`,
+    notes: [
+      'Necesitas la URL o el video ID del post.',
+      'TikTok ajusta la altura de forma automática.',
+      'Es la opción más directa para clips virales.'
+    ]
+  },
+  youtube: {
+    label: 'YouTube',
+    title: 'YouTube Shorts',
+    intro: 'Si también subes clips a YouTube, el iframe de Shorts es una alternativa estable y muy ligera.',
+    hint: 'Ideal para una reproducción simple.',
+    preview: `<div class="preview-visual preview-visual--youtube">
+      <div class="preview-top">
+        <span class="preview-chip">YouTube Shorts</span>
+        <span class="preview-chip alt">Iframe</span>
+      </div>
+      <div>
+        <h3>Short vertical</h3>
+        <p>Un reproductor simple, con carga ligera y sin depender de scripts de terceros para el render.</p>
+      </div>
+    </div>`,
+    code: `<iframe width="100%" height="480"
+  src="https://www.youtube.com/embed/VIDEO_ID"
+  title="YouTube Shorts"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>`,
+    notes: [
+      'Funciona con el ID del video o Shorts.',
+      'Es buena opción si tu contenido también vive en YouTube.',
+      'Puedes ajustar el alto para mantener el formato vertical.'
+    ]
+  },
+  video: {
+    label: 'Video propio',
+    title: 'MP4 local',
+    intro: 'La alternativa más libre: subes el archivo al hosting y usas el reproductor HTML5 sin scripts extra.',
+    hint: 'Control total sobre diseño y reproducción.',
+    preview: `<div class="preview-visual preview-visual--video">
+      <div class="preview-top">
+        <span class="preview-chip">HTML5 video</span>
+        <span class="preview-chip alt">MP4 propio</span>
+      </div>
+      <div>
+        <h3>Tu video</h3>
+        <p>Perfecto si quieres una experiencia uniforme, cero dependencias externas y control total del peso del archivo.</p>
+      </div>
+    </div>`,
+    code: `<video controls playsinline poster="portada.jpg">
+  <source src="video-reel.mp4" type="video/mp4">
+</video>`,
+    notes: [
+      'Sube el MP4 al mismo hosting o CDN.',
+      'Puedes usar poster para la portada.',
+      'Es la opción más estable si quieres diseño propio.'
+    ]
+  }
+};
+
+let activePlatform = 'instagram';
+
+function setPlatform(id) {
+  activePlatform = id;
+  const platform = PLATFORMS[id];
+  document.querySelectorAll('.platform-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.platform === id);
+  });
+  document.getElementById('platformLabel').textContent = platform.label;
+  document.getElementById('platformTitle').textContent = platform.title;
+  document.getElementById('platformIntro').textContent = platform.intro;
+  document.getElementById('platformPreview').innerHTML = platform.preview;
+  document.getElementById('platformCode').textContent = platform.code;
+  document.getElementById('platformHint').textContent = platform.hint;
+  document.getElementById('platformNotes').innerHTML = platform.notes.map(note => `<li>${note}</li>`).join('');
+}
+
+async function copyCurrentCode() {
+  const text = PLATFORMS[activePlatform].code;
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const tmp = document.createElement('textarea');
+      tmp.value = text;
+      tmp.style.position = 'fixed';
+      tmp.style.opacity = '0';
+      document.body.appendChild(tmp);
+      tmp.focus();
+      tmp.select();
+      document.execCommand('copy');
+      tmp.remove();
+    }
+    const btn = document.getElementById('copyCodeBtn');
+    const label = btn.textContent;
+    btn.textContent = 'Copiado';
+    setTimeout(() => { btn.textContent = label; }, 1200);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+function toggleMobile() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+function closeMobile() {
+  document.getElementById('navLinks').classList.remove('open');
+}
+
+const THEME_STORAGE_KEY = 'sabor58-theme';
+const themeToggle = document.getElementById('themeToggle');
+const themeToggleLabel = document.getElementById('themeToggleLabel');
+const themeThumb = document.getElementById('themeThumb');
+
+function syncThemeControls(theme) {
+  const isDark = theme === 'dark';
+  if (themeToggle) {
+    themeToggle.setAttribute('aria-pressed', String(isDark));
+    themeToggle.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+  }
+  if (themeToggleLabel) {
+    themeToggleLabel.textContent = isDark ? 'Claro' : 'Oscuro';
+  }
+  if (themeThumb) {
+    themeThumb.textContent = isDark ? '☀' : '☾';
+  }
+}
+
+function applyTheme(theme, persist) {
+  document.documentElement.dataset.theme = theme;
+  document.documentElement.style.colorScheme = theme;
+  syncThemeControls(theme);
+  if (persist) {
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, theme);
+    } catch (error) {}
+  }
+}
+
+function toggleTheme() {
+  const current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+  applyTheme(current === 'dark' ? 'light' : 'dark', true);
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', toggleTheme);
+}
+
+syncThemeControls(document.documentElement.dataset.theme || 'light');
+
+document.querySelectorAll('.platform-btn').forEach(btn => {
+  btn.addEventListener('click', () => setPlatform(btn.dataset.platform));
+});
+
+document.getElementById('copyCodeBtn').addEventListener('click', copyCurrentCode);
+
+setPlatform(activePlatform);
+
+window.addEventListener('load', () => {
+  if (window.instgrm && window.instgrm.Embeds && typeof window.instgrm.Embeds.process === 'function') {
+    window.instgrm.Embeds.process();
+  }
+});
+</script>
+<script async defer src="https://www.instagram.com/embed.js"></script>
+</body>
+</html>
