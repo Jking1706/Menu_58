@@ -308,7 +308,7 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   margin: -2.2rem auto 18px;
   padding: 0 1.25rem;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  grid-template-columns: 1fr;
   gap: 18px;
 }
 
@@ -399,6 +399,21 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
 
 .spotlight-embed {
   padding: 12px;
+}
+
+.spotlight-feed {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.spotlight-frame-title {
+  padding: 1rem 1rem 0;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--brand);
 }
 
 .spotlight-embed blockquote.instagram-media {
@@ -806,7 +821,7 @@ footer {
 footer strong { color: #fff; }
 
 @media (max-width: 980px) {
-  .instagram-spotlight { grid-template-columns: 1fr; }
+  .spotlight-feed { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .selector-grid { grid-template-columns: 1fr; }
   .option-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -835,6 +850,7 @@ footer strong { color: #fff; }
   .theme-toggle-label { display: none; }
   .hero { padding: 5rem 1.1rem 3.5rem; }
   .instagram-spotlight { margin-top: -1.4rem; padding-inline: 1rem; }
+  .spotlight-feed { grid-template-columns: 1fr; }
   .page-wrap { padding-inline: 1rem; }
   .selector-grid { margin-top: -1.4rem; }
   .preview-card,
@@ -893,9 +909,20 @@ footer strong { color: #fff; }
       <a class="spotlight-link secondary" href="#opciones">Ver embeds</a>
     </div>
   </article>
-  <article class="spotlight-card spotlight-embed">
-    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZC0ejZRE88/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-  </article>
+  <div class="spotlight-feed">
+    <article class="spotlight-card spotlight-embed">
+      <div class="spotlight-frame-title">Arepas al barril</div>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZC0ejZRE88/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; box-shadow:0 10px 26px rgba(0,0,0,0.14); margin:0; width:100%; padding:0;"></blockquote>
+    </article>
+    <article class="spotlight-card spotlight-embed">
+      <div class="spotlight-frame-title">Perros y hamburguesas</div>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DZC3-hCkZpm/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; box-shadow:0 10px 26px rgba(0,0,0,0.14); margin:0; width:100%; padding:0;"></blockquote>
+    </article>
+    <article class="spotlight-card spotlight-embed">
+      <div class="spotlight-frame-title">Preparación de pepito</div>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZY0MorNXQl/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; box-shadow:0 10px 26px rgba(0,0,0,0.14); margin:0; width:100%; padding:0;"></blockquote>
+    </article>
+  </div>
 </section>
 
 <div class="page-wrap" id="selector">
@@ -953,34 +980,34 @@ footer strong { color: #fff; }
 
 <section class="option-section" id="opciones">
   <div class="section-title">
-    <h3>Opciones rápidas</h3>
-    <p>Resumen corto de cada camino para que elijas sin perder tiempo.</p>
+    <h3>Reels listos</h3>
+    <p>Publicaciones ya preparadas para mostrar comida, proceso y marca.</p>
   </div>
 
   <div class="option-grid">
     <article class="option-card">
-      <div class="option-badge">IG</div>
-      <h4>Instagram Reels</h4>
-      <p>Usa el embed oficial si el reel es público y quieres mantener la experiencia nativa de Instagram.</p>
+      <div class="option-badge">01</div>
+      <h4>Arepas al barril</h4>
+      <p>Video protagonista para abrir la página de redes con el producto más visible.</p>
       <code>&lt;blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZC0ejZRE88/?utm_source=ig_embed&amp;utm_campaign=loading" ...&gt;</code>
     </article>
     <article class="option-card">
-      <div class="option-badge">TT</div>
-      <h4>TikTok</h4>
-      <p>Perfecto para clips cortos y contenido viral. Solo necesitas el bloque oficial de TikTok.</p>
-      <code>&lt;blockquote class="tiktok-embed" ...&gt;</code>
+      <div class="option-badge">02</div>
+      <h4>Perros y hamburguesas</h4>
+      <p>Publicación para mostrar variedad, volumen y sabor de la línea rápida.</p>
+      <code>&lt;blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DZC3-hCkZpm/?utm_source=ig_embed&amp;utm_campaign=loading" ...&gt;</code>
     </article>
     <article class="option-card">
-      <div class="option-badge">YT</div>
-      <h4>YouTube Shorts</h4>
-      <p>La opción más estable si también publicas en YouTube y quieres un iframe sencillo.</p>
-      <code>&lt;iframe src="https://www.youtube.com/embed/VIDEO_ID" ...&gt;</code>
+      <div class="option-badge">03</div>
+      <h4>Preparación de pepito</h4>
+      <p>Contenido de proceso que vende de forma natural y muestra cocina en movimiento.</p>
+      <code>&lt;blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZY0MorNXQl/?utm_source=ig_embed&amp;utm_campaign=loading" ...&gt;</code>
     </article>
     <article class="option-card">
-      <div class="option-badge">MP4</div>
-      <h4>Video propio</h4>
-      <p>Si subes el archivo al hosting, controlas el peso, el diseño y la reproducción sin scripts externos.</p>
-      <code>&lt;video controls playsinline&gt;...&lt;/video&gt;</code>
+      <div class="option-badge">IG</div>
+      <h4>Perfil oficial</h4>
+      <p>Enlace directo a la cuenta para que el usuario siga la marca sin salir de contexto.</p>
+      <code>https://www.instagram.com/sabor_.mas58</code>
     </article>
   </div>
 </section>
