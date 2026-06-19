@@ -199,6 +199,8 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
 
 .theme-toggle-label { display: none; }
 
+.is-hidden { display: none !important; }
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -885,14 +887,12 @@ footer strong { color: #fff; }
   <h1>Reels, clips y <em>embeds</em></h1>
   <p class="hero-copy">Esta subpágina reúne varias formas de mostrar contenido de Instagram, TikTok, YouTube Shorts o video propio. Elige el formato que mejor te funcione y pega el código en la parte correspondiente de tu sitio.</p>
   <div class="hero-badges">
-    <a class="hero-badge" href="#selector">Selector de embeds</a>
-    <a class="hero-badge" href="#opciones">Opciones rápidas</a>
     <a class="hero-badge" href="https://www.instagram.com/sabor_.mas58?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Instagram @sabor_.mas58</a>
     <a class="hero-badge" href="index.html">Volver al menú</a>
   </div>
 </section>
 
-<section class="instagram-spotlight" id="reel">
+<section class="instagram-spotlight is-hidden" id="reel">
   <article class="spotlight-card spotlight-copy">
     <div>
       <div class="spotlight-kicker">Instagram destacado</div>
@@ -925,7 +925,7 @@ footer strong { color: #fff; }
   </div>
 </section>
 
-<div class="page-wrap" id="selector">
+<div class="page-wrap is-hidden" id="selector">
   <div class="selector-grid">
     <aside class="selector-panel">
       <div class="panel-kicker">Formatos</div>
@@ -978,7 +978,7 @@ footer strong { color: #fff; }
   </div>
 </div>
 
-<section class="option-section" id="opciones">
+<section class="option-section is-hidden" id="opciones">
   <div class="section-title">
     <h3>Reels listos</h3>
     <p>Publicaciones ya preparadas para mostrar comida, proceso y marca.</p>
