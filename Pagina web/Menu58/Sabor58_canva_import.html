@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sabor+58 - Hamburguesa Trifasica</title>
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background: #050505;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .page {
+      position: relative;
+      width: 1024px;
+      height: 1024px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 22%, rgba(255, 155, 0, 0.22) 0, rgba(255, 155, 0, 0.08) 9%, transparent 25%),
+        radial-gradient(circle at 72% 58%, rgba(255, 125, 0, 0.12) 0, rgba(255, 125, 0, 0.04) 10%, transparent 30%),
+        linear-gradient(180deg, #060606 0%, #0a0a0a 62%, #070707 100%);
+    }
+
+    .crop {
+      position: absolute;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .source {
+      position: absolute;
+      width: 1024px;
+      height: 1024px;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .burger-crop {
+      left: 284px;
+      top: 26px;
+      width: 560px;
+      height: 920px;
+    }
+
+    .burger-source {
+      left: -284px;
+      top: -26px;
+    }
+
+    .logo-crop {
+      right: 18px;
+      top: 12px;
+      width: 206px;
+      height: 180px;
+      border-radius: 18px;
+    }
+
+    .logo-source {
+      left: -800px;
+      top: -12px;
+    }
+
+    .title-small {
+      position: absolute;
+      left: 44px;
+      top: 30px;
+      width: 350px;
+      font: 700 64px/0.88 "Brush Script MT", "Segoe Script", cursive;
+      color: #f5f5f5;
+      letter-spacing: 1px;
+      text-shadow: 0 4px 0 rgba(0, 0, 0, 0.95);
+      transform: rotate(-3deg);
+    }
+
+    .title-main {
+      position: absolute;
+      left: 14px;
+      top: 80px;
+      width: 390px;
+      font: 900 108px/0.86 Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      color: #f4b11b;
+      letter-spacing: 1px;
+      text-shadow:
+        0 4px 0 rgba(0, 0, 0, 0.95),
+        0 0 20px rgba(255, 160, 0, 0.15);
+      transform: scaleY(1.02);
+    }
+
+    .subtitle {
+      position: absolute;
+      left: 70px;
+      top: 232px;
+      width: 310px;
+      text-align: center;
+      color: #f4f4f4;
+      font: 600 29px/1.08 Arial, Helvetica, sans-serif;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, 0.95);
+    }
+
+    .subtitle strong {
+      display: block;
+      margin-top: 6px;
+    }
+
+    .label {
+      position: absolute;
+      color: #f4f4f4;
+      font: 700 34px/1.0 "Segoe Script", "Brush Script MT", cursive;
+      text-shadow: 0 3px 0 rgba(0, 0, 0, 0.9);
+      white-space: nowrap;
+    }
+
+    .line {
+      position: absolute;
+      height: 3px;
+      background: #d8aa3e;
+      border-radius: 999px;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+    }
+
+    .dot {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #d8aa3e;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .left-labels .label { text-align: right; }
+
+    .right-labels .label { text-align: left; }
+
+    .footer-note {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 38px;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.14) 100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="page" data-document-role="page" data-label="Sabor+58 - Hamburguesa Trifasica">
+    <div class="burger-crop crop" aria-hidden="true">
+      <img class="source burger-source" src="Gemini_Generated_Image_yl4kauyl4kauyl4k.png" alt="Hamburguesa trifasica" />
+    </div>
+
+    <div class="logo-crop crop" aria-hidden="true">
+      <img class="source logo-source" src="Gemini_Generated_Image_yl4kauyl4kauyl4k.png" alt="Logo Sabor+58" />
+    </div>
+
+    <div class="title-small">HAMBURGUESA</div>
+    <div class="title-main">TRIFASICA</div>
+
+    <div class="subtitle">
+      TRES CARNES, UN SOLO SABOR
+      <strong>¡EXPERIENCIA TRIFÁSICA!</strong>
+    </div>
+
+    <div class="left-labels">
+      <div class="label" style="left: 76px; top: 428px;">Queso mozzarella</div>
+      <div class="line" style="left: 255px; top: 450px; width: 80px;"></div>
+      <div class="dot" style="left: 334px; top: 446px;"></div>
+
+      <div class="label" style="left: 184px; top: 505px;">Jamón</div>
+      <div class="line" style="left: 253px; top: 528px; width: 82px;"></div>
+      <div class="dot" style="left: 334px; top: 524px;"></div>
+
+      <div class="label" style="left: 151px; top: 574px;">Tocineta</div>
+      <div class="line" style="left: 253px; top: 597px; width: 82px;"></div>
+      <div class="dot" style="left: 334px; top: 593px;"></div>
+
+      <div class="label" style="left: 180px; top: 650px;">Huevo</div>
+      <div class="line" style="left: 253px; top: 673px; width: 82px;"></div>
+      <div class="dot" style="left: 334px; top: 669px;"></div>
+
+      <div class="label" style="left: 169px; top: 727px;">Pollo</div>
+      <div class="line" style="left: 253px; top: 750px; width: 82px;"></div>
+      <div class="dot" style="left: 334px; top: 746px;"></div>
+
+      <div class="label" style="left: 86px; top: 804px;">Carne al barril</div>
+      <div class="line" style="left: 253px; top: 827px; width: 82px;"></div>
+      <div class="dot" style="left: 334px; top: 823px;"></div>
+
+      <div class="label" style="left: 85px; top: 878px;">Carne artesanal</div>
+      <div class="line" style="left: 253px; top: 901px; width: 82px;"></div>
+      <div class="dot" style="left: 334px; top: 897px;"></div>
+
+      <div class="label" style="left: 70px; top: 951px;">Papas de ripio</div>
+      <div class="line" style="left: 253px; top: 974px; width: 82px;"></div>
+      <div class="dot" style="left: 334px; top: 970px;"></div>
+    </div>
+
+    <div class="right-labels">
+      <div class="line" style="left: 735px; top: 218px; width: 54px;"></div>
+      <div class="dot" style="left: 726px; top: 214px;"></div>
+      <div class="label" style="left: 793px; top: 193px;">Salsas</div>
+
+      <div class="line" style="left: 735px; top: 288px; width: 54px;"></div>
+      <div class="dot" style="left: 726px; top: 284px;"></div>
+      <div class="label" style="left: 793px; top: 263px;">Lechuga</div>
+
+      <div class="line" style="left: 735px; top: 357px; width: 54px;"></div>
+      <div class="dot" style="left: 726px; top: 353px;"></div>
+      <div class="label" style="left: 793px; top: 332px;">Tomate</div>
+    </div>
+
+    <div class="footer-note" aria-hidden="true"></div>
+  </div>
+</body>
+</html>
