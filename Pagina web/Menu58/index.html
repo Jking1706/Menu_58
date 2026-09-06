@@ -3,14 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>|Bandera de Venezuela| Sabor+58 |Bandera de venezuela|</title>
+<meta name="description" content="Menú digital de Sabor +58 en Pereira: arepas, perros calientes, hamburguesas y pepitos venezolanos. Pide por WhatsApp o visita nuestra ubicación.">
+<title>Sabor +58 | Menú venezolano en Pereira</title>
+<link rel="icon" type="image/png" href="Galery/Favicon_Sabor58.png">
+<link rel="apple-touch-icon" href="Galery/Favicon_Sabor58.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <script>
 (() => {
   try {
     const saved = localStorage.getItem('sabor58-theme');
-    const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const theme = saved || 'dark';
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
   } catch (error) {
@@ -55,27 +58,27 @@
 }
 
 html[data-theme="dark"] {
-  --page-bg: #050505;
-  --nav-bg: rgba(7,7,8,0.88);
-  --hero-bg: radial-gradient(circle at top right, rgba(215,38,56,0.18), transparent 22%), radial-gradient(circle at 20% 18%, rgba(255,195,0,0.08), transparent 18%), linear-gradient(135deg, #050505 0%, #090a0d 100%);
+  --page-bg: #040506;
+  --nav-bg: rgba(6,8,12,0.72);
+  --hero-bg: radial-gradient(circle at 50% 0%, rgba(255,195,0,0.08), transparent 18%), radial-gradient(circle at 84% 10%, rgba(215,38,56,0.16), transparent 22%), linear-gradient(180deg, #0b0d11 0%, #040506 100%);
   --hero-text: #FFFFFF;
-  --hero-note: rgba(255,255,255,0.82);
-  --accent-blue: #B5C3D8;
+  --hero-note: rgba(255,255,255,0.76);
+  --accent-blue: #D7E0F0;
   --toggle-bg: rgba(255,255,255,0.04);
   --toggle-border: rgba(255,255,255,0.10);
   --toggle-text: #FFFFFF;
   --toggle-thumb: #FFFFFF;
   --toggle-thumb-text: #1A1A1A;
-  --combo-bg: linear-gradient(135deg, rgba(255,195,0,0.08) 0%, #0c0e12 52%, rgba(215,38,56,0.06) 100%);
-  --combo-border: rgba(255,195,0,0.12);
+  --combo-bg: linear-gradient(135deg, rgba(255,195,0,0.08) 0%, rgba(13,15,20,0.95) 54%, rgba(215,38,56,0.05) 100%);
+  --combo-border: rgba(255,195,0,0.14);
   --text: #F4F7FB;
   --muted: #A6ADBB;
   --border: rgba(255,255,255,0.08);
-  --card-bg: #0c0e12;
-  --bg: #050505;
+  --card-bg: rgba(12,14,18,0.88);
+  --bg: #040506;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -83,6 +86,13 @@ body {
   color: var(--text);
   min-height: 100vh;
   transition: background-color 0.45s ease, color 0.35s ease;
+}
+
+html[data-theme="dark"] body {
+  background:
+    radial-gradient(circle at top, rgba(215,38,56,0.10), transparent 22%),
+    radial-gradient(circle at 85% 0%, rgba(255,195,0,0.07), transparent 18%),
+    var(--page-bg);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -106,16 +116,25 @@ nav {
   border-bottom: 0.5px solid rgba(255,255,255,0.08);
 }
 
-.nav-logo {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: 1.25rem;
-  color: #fff;
-  text-decoration: none;
-  letter-spacing: -0.5px;
+html[data-theme="dark"] nav {
+  background: rgba(6,8,12,0.72);
+  border-bottom-color: rgba(255,255,255,0.06);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.22);
 }
 
-.nav-logo span { color: var(--brand-light); }
+.nav-logo {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.nav-logo img {
+  display: block;
+  height: 38px;
+  width: auto;
+}
 
 .nav-links {
   display: flex;
@@ -232,7 +251,7 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
 .hero {
   background: var(--hero-bg);
   padding: 6rem 2rem 4rem;
-  text-align: center;
+  text-align: left;
   position: relative;
   overflow: hidden;
 }
@@ -252,6 +271,10 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   height: 60px;
   background: var(--page-bg);
   clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+html[data-theme="dark"] .hero::after {
+  background: linear-gradient(180deg, rgba(4,5,6,0), var(--page-bg) 72%);
 }
 
 .flag-strip {
@@ -362,6 +385,20 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   border-color: rgba(255,195,0,0.45);
 }
 
+html[data-theme="dark"] .hero-badge {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+html[data-theme="dark"] .hero-badge:hover {
+  background: var(--brand-light);
+  color: var(--brand-black);
+  border-color: rgba(255,195,0,0.45);
+}
+
 .hero-badge svg {
   width: 14px;
   height: 14px;
@@ -382,20 +419,275 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   border-radius: 6px;
 }
 
+.hero-layout {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-copy-shell {
+  max-width: 640px;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--brand-light);
+  opacity: 0.95;
+}
+
+.hero-kicker::before {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background: rgba(255,195,0,0.5);
+}
+
+.hero-title {
+  margin-top: 0.8rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 7vw, 5.75rem);
+  line-height: 0.92;
+  letter-spacing: -2.2px;
+  color: var(--hero-text);
+}
+
+.hero-title em {
+  color: var(--brand-light);
+  font-style: normal;
+}
+
+.hero-lead {
+  margin-top: 1rem;
+  max-width: 42rem;
+  color: var(--hero-note);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 1.4rem;
+}
+
+.hero-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+.hero-action.primary {
+  background: var(--brand-light);
+  color: var(--brand-black);
+  box-shadow: 0 14px 28px rgba(255,195,0,0.22);
+}
+
+.hero-action.secondary {
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  border-color: rgba(255,255,255,0.10);
+}
+
+.hero-action:hover {
+  transform: translateY(-1px);
+}
+
+.hero-proof {
+  margin-top: 1.4rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.hero-proof-item {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  padding: 0.95rem 1rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hero-proof-item strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.hero-proof-item span {
+  display: block;
+  color: rgba(255,255,255,0.72);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.hero-visual-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.hero-photo-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  min-height: 420px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,195,0,0.16), transparent 22%),
+    radial-gradient(circle at 85% 0%, rgba(215,38,56,0.22), transparent 24%),
+    linear-gradient(135deg, rgba(12,14,18,0.95), rgba(4,5,6,0.98));
+  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+}
+
+.hero-photo-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6,8,12,0.02), rgba(6,8,12,0.32));
+  pointer-events: none;
+}
+
+.hero-photo-frame img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.05) contrast(1.02) brightness(0.95);
+}
+
+.hero-photo-label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(6,8,12,0.68);
+  border: 1px solid rgba(255,195,0,0.16);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hero-aside-card {
+  display: grid;
+  gap: 10px;
+}
+
+.hero-aside-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 0.95rem 1rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+.hero-aside-item strong {
+  font-size: 13px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+}
+
+.hero-aside-item span {
+  max-width: 16rem;
+  color: rgba(255,255,255,0.68);
+  font-size: 12px;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.mobile-wa-cta {
+  display: none;
+}
+
+.mobile-wa-cta svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.mobile-wa-cta span {
+  display: block;
+}
+
+.mobile-wa-cta strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.mobile-wa-cta small {
+  display: block;
+  font-size: 11px;
+  line-height: 1.2;
+  opacity: 0.78;
+}
+
 /* ── CATEGORY TABS ── */
 .cat-tabs {
   display: flex;
   justify-content: center;
   gap: 8px;
-  padding: 2rem 1rem 1rem;
+  padding: 1.1rem 1rem 1rem;
   flex-wrap: wrap;
+}
+
+html[data-theme="dark"] .cat-tabs {
+  position: sticky;
+  top: 56px;
+  z-index: 90;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(180deg, rgba(4,5,6,0.94), rgba(4,5,6,0.78));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .cat-tab {
   background: var(--card-bg);
   border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  padding: 0.78rem 1.35rem;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -412,11 +704,27 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   color: var(--accent-blue);
 }
 
+html[data-theme="dark"] .cat-tab {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.08);
+  color: var(--muted);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+}
+
+html[data-theme="dark"] .cat-tab:hover {
+  border-color: rgba(255,195,0,0.26);
+  color: #fff;
+}
+
 .cat-tab.active {
   background: var(--brand);
   border-color: var(--brand);
   color: #fff;
   box-shadow: 0 4px 14px rgba(215,38,56,0.28);
+}
+
+html[data-theme="dark"] .cat-tab.active {
+  box-shadow: 0 14px 28px rgba(215,38,56,0.24);
 }
 
 .cat-tab .tab-emoji { font-size: 18px; line-height: 1; }
@@ -428,6 +736,7 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   max-width: 1100px;
   margin: 0 auto;
   animation: fadeUp 0.3s ease;
+  scroll-margin-top: 76px;
 }
 
 .menu-section.active { display: block; }
@@ -441,6 +750,10 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(0,53,102,0.14);
+}
+
+html[data-theme="dark"] .section-header {
+  border-bottom-color: rgba(255,255,255,0.08);
 }
 
 .section-header h2 {
@@ -457,6 +770,10 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   margin-top: 4px;
 }
 
+html[data-theme="dark"] .section-header p {
+  color: rgba(255,255,255,0.72);
+}
+
 /* ── ITEM GRID ── */
 .items-grid {
   display: grid;
@@ -466,17 +783,29 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
 
 .item-card {
   background: var(--card-bg);
-  border-radius: var(--radius);
+  border-radius: 20px;
   border: 1px solid var(--border);
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+  transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s, background 0.18s;
+}
+
+html[data-theme="dark"] .item-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 18px 42px rgba(0,0,0,0.28);
 }
 
 .item-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 28px rgba(0,53,102,0.09);
   border-color: rgba(0,53,102,0.32);
+}
+
+html[data-theme="dark"] .item-card:hover {
+  box-shadow: 0 22px 50px rgba(0,0,0,0.35);
+  border-color: rgba(255,195,0,0.18);
 }
 
 .item-card.open {
@@ -494,12 +823,32 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
     linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-black) 100%);
 }
 
+.item-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6,8,12,0.02), rgba(6,8,12,0.2));
+  pointer-events: none;
+  z-index: 1;
+}
+
 .item-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
   transition: transform 0.25s ease;
+}
+
+.item-media img,
+.item-media-empty,
+.item-media-badge {
+  position: relative;
+  z-index: 2;
+}
+
+html[data-theme="dark"] .item-media img {
+  filter: saturate(1.04) contrast(1.02);
 }
 
 .item-card:hover .item-media img {
@@ -546,9 +895,9 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   position: absolute;
   top: 12px;
   left: 12px;
-  background: rgba(215,38,56,0.9);
+  background: rgba(6,8,12,0.68);
   color: var(--brand-light);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,195,0,0.18);
   border-radius: 999px;
   padding: 5px 9px;
   font-size: 10px;
@@ -585,6 +934,12 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   font-family: 'Montserrat', sans-serif;
 }
 
+html[data-theme="dark"] .item-pill {
+  background: rgba(255,195,0,0.12);
+  color: #f8d46b;
+  letter-spacing: 0.3px;
+}
+
 .item-toggle-row {
   padding: 0 1.2rem 0.9rem;
   display: flex;
@@ -593,6 +948,10 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   font-size: 12px;
   color: var(--accent-blue);
   font-weight: 500;
+}
+
+html[data-theme="dark"] .item-toggle-row {
+  color: #f5d86d;
 }
 
 .item-toggle-row svg {
@@ -611,6 +970,10 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   padding: 0 1.2rem 1.2rem;
   border-top: 1px solid rgba(0,53,102,0.12);
   padding-top: 1rem;
+}
+
+html[data-theme="dark"] .item-body {
+  border-top-color: rgba(255,255,255,0.08);
 }
 
 .item-card.open .item-body {
@@ -643,6 +1006,12 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   font-weight: 500;
 }
 
+html[data-theme="dark"] .ing-chip {
+  background: rgba(255,255,255,0.04);
+  color: #dbe3f0;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
 .price-rows {
   display: flex;
   flex-direction: column;
@@ -663,6 +1032,10 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   gap: 6px;
 }
 
+html[data-theme="dark"] .price-row-label {
+  color: rgba(255,255,255,0.78);
+}
+
 .price-dot {
   width: 5px;
   height: 5px;
@@ -676,6 +1049,10 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   color: var(--brand);
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
+}
+
+html[data-theme="dark"] .price-row-val {
+  color: #f8d46b;
 }
 
 /* ── COMBO ── */
@@ -694,6 +1071,10 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   gap: 16px;
   flex-wrap: wrap;
   box-shadow: 0 12px 28px rgba(0,53,102,0.06);
+}
+
+html[data-theme="dark"] .combo-card {
+  box-shadow: 0 18px 40px rgba(0,0,0,0.26);
 }
 
 .combo-left {}
@@ -812,10 +1193,16 @@ footer {
   letter-spacing: 0.5px;
 }
 
+html[data-theme="dark"] footer {
+  background: #030405;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
 footer strong { color: #fff; }
 
 /* ── MOBILE ── */
 @media (max-width: 700px) {
+  body { padding-bottom: 96px; }
   .nav-links { display: none; }
   .nav-links.open {
     display: flex;
@@ -835,13 +1222,43 @@ footer strong { color: #fff; }
   }
   .hamburger { display: flex; }
   .items-grid { grid-template-columns: 1fr; }
-  .hero { padding: 5rem 1.2rem 3.5rem; }
+  .hero { padding: 4.6rem 1rem 3rem; }
+  .hero-layout { grid-template-columns: 1fr; gap: 1.15rem; }
+  .hero-copy-shell { max-width: none; }
+  .hero-title { font-size: clamp(2.7rem, 14vw, 4rem); }
+  .hero-lead { font-size: 14px; line-height: 1.65; }
+  .hero-actions { gap: 10px; }
+  .hero-action { flex: 1 1 100%; }
+  .hero-proof { grid-template-columns: 1fr; }
+  .hero-photo-frame { min-height: 320px; }
+  .hero-aside-item { flex-direction: column; align-items: flex-start; }
+  .hero-aside-item span { text-align: left; max-width: none; }
   .cat-tab { padding: 0.65rem 1.1rem; font-size: 13px; }
   .menu-section { padding: 1rem 1rem 3rem; }
   .ubi-grid { grid-template-columns: 1fr; }
   .combo-card { flex-direction: column; align-items: flex-start; }
+  .nav-logo img { height: 34px; }
+  .cat-tabs { top: 56px; }
   .theme-toggle { padding: 0.35rem; margin-left: 0.5rem; }
   .theme-toggle-label { display: none; }
+  .mobile-wa-cta {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    z-index: 120;
+    padding: 0.95rem 1rem;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #FFC300 0%, #FFE39A 100%);
+    color: #1A1A1A;
+    text-decoration: none;
+    box-shadow: 0 22px 48px rgba(0,0,0,0.32);
+    border: 1px solid rgba(255,255,255,0.5);
+  }
 }
 </style>
 </head>
@@ -849,7 +1266,9 @@ footer strong { color: #fff; }
 
 <!-- NAV -->
 <nav id="navbar">
-  <a class="nav-logo" href="#">Sabor <span>+58</span></a>
+  <a class="nav-logo" href="#" aria-label="Sabor +58">
+    <img src="Galery/Logo_Sabor58.png" alt="" aria-hidden="true">
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#" onclick="showCat('arepas',this);closeMobile();return false;" class="active">Arepas</a></li>
     <li><a href="#" onclick="showCat('perros',this);closeMobile();return false;">Perros</a></li>
@@ -863,64 +1282,65 @@ footer strong { color: #fff; }
     <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb" id="themeThumb">☾</span></span>
     <span class="theme-toggle-label" id="themeToggleLabel">Oscuro</span>
   </button>
-  <button class="hamburger" id="hamburger" aria-label="Menú" onclick="toggleMobile()">
+  <button class="hamburger" id="hamburger" aria-label="Menú" aria-controls="navLinks" aria-expanded="false" onclick="toggleMobile()">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="flag-strip">
-    <div class="flag-bar" style="background:#D72638"></div>
-    <div class="flag-bar" style="background:#003566"></div>
-    <div class="flag-bar" style="background:#D72638"></div>
-    <div class="flag-bar" style="background:#003566"></div>
-    <div class="flag-bar" style="background:#D72638"></div>
-    <div class="flag-bar" style="background:#003566"></div>
-    <div class="flag-bar" style="background:#FFC300"></div>
-    <div class="flag-bar" style="background:#FFC300"></div>
-    <div class="flag-bar" style="background:#003566"></div>
-    <div class="flag-bar" style="background:#D72638"></div>
-    <div class="flag-bar" style="background:#003566"></div>
-    <div class="flag-bar" style="background:#D72638"></div>
-    <div class="flag-bar" style="background:#003566"></div>
-    <div class="flag-bar" style="background:#D72638"></div>
+  <div class="hero-layout">
+    <div class="hero-copy-shell">
+      <p class="hero-kicker">Cocina venezolana en Pereira</p>
+      <h1 class="hero-title">Sabor <em>+58</em></h1>
+      <p class="hero-lead">Arepas, perros calientes, hamburguesas y pepitos con una presentación más limpia, rápida y apetecible. Diseñado para pedir sin fricción y elegir en segundos.</p>
+      <div class="hero-actions">
+        <a class="hero-action primary" href="https://wa.me/573043753966" target="_blank" rel="noopener noreferrer">
+          Pedir por WhatsApp
+        </a>
+        <a class="hero-action secondary" href="#" onclick="showCat('ubicacion',this);return false;">
+          Ver ubicación
+        </a>
+        <a class="hero-action secondary" href="redes.html">
+          Ver redes
+        </a>
+      </div>
+      <div class="hero-proof">
+        <div class="hero-proof-item">
+          <strong>Hecho al momento</strong>
+          <span>Ingredientes frescos y porciones generosas</span>
+        </div>
+        <div class="hero-proof-item">
+          <strong>Pereira</strong>
+          <span>Barrio Ormaza y pedido directo por WhatsApp</span>
+        </div>
+        <div class="hero-proof-item">
+          <strong>Sabor +58</strong>
+          <span>Tradición venezolana con look premium</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual-shell">
+      <div class="hero-photo-frame">
+        <span class="hero-photo-label">Producto estrella</span>
+        <img src="Galery/Alimentos/Varias arepas de Carne al Barril.jpeg" alt="Varias arepas de carne al barril">
+      </div>
+      <div class="hero-aside-card">
+        <div class="hero-aside-item">
+          <strong>Arepas artesanales</strong>
+          <span>Masa fresca y rellenos con sabor casero</span>
+        </div>
+        <div class="hero-aside-item">
+          <strong>Hamburguesas y perros</strong>
+          <span>Presentación intensa para fotos y antojo</span>
+        </div>
+        <div class="hero-aside-item">
+          <strong>Pedido rápido</strong>
+          <span>WhatsApp como ruta principal de conversión</span>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="hero-brandline">
-    <span class="flag-icon" aria-hidden="true">
-      <span class="flag-stripe flag-yellow"></span>
-      <span class="flag-stripe flag-blue"></span>
-      <span class="flag-stripe flag-red"></span>
-      <span class="flag-stars">★ ★ ★</span>
-    </span>
-    <h1>Sabor <em>+58</em></h1>
-    <span class="flag-icon" aria-hidden="true">
-      <span class="flag-stripe flag-yellow"></span>
-      <span class="flag-stripe flag-blue"></span>
-      <span class="flag-stripe flag-red"></span>
-      <span class="flag-stars">★ ★ ★</span>
-    </span>
-  </div>
-  <p class="hero-tagline">Venezuela en cada bocado · Pereira</p>
-  <div class="hero-badges">
-    <a class="hero-badge" href="https://wa.me/573043753966" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1zm0 0a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>
-      +57 304 375 3966
-    </a>
-    <a class="hero-badge" href="#" onclick="showCat('ubicacion',this);return false;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      Cra 23 #74-89, Barrio Ormaza
-    </a>
-    <a class="hero-badge" href="https://www.instagram.com/sabor_.mas58?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
-      Instagram @sabor_.mas58
-    </a>
-    <a class="hero-badge" href="redes.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M8 10l5 3-5 3z"/></svg>
-      Redes sociales
-    </a>
-  </div>
-  <p class="hero-note">Cada producto deja un espacio para foto. Solo agrega la ruta o URL en el campo <code>image</code> del arreglo <code>MENU</code>.</p>
 </section>
 
 <!-- TABS -->
@@ -1030,34 +1450,42 @@ footer strong { color: #fff; }
   <span style="margin-top:4px;display:block;">Cra 23 #74-89, Barrio Ormaza · +57 304 375 3966</span>
 </footer>
 
+<a class="mobile-wa-cta" href="https://wa.me/573043753966" target="_blank" rel="noopener noreferrer" aria-label="Pedir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1zm0 0a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>
+  <span>
+    <strong>Pedir por WhatsApp</strong>
+    <small>Respuesta rápida</small>
+  </span>
+</a>
+
 <script>
 // Agrega `image: "ruta-o-url.jpg"` a cada producto cuando quieras mostrar su foto.
 const MENU = {
   arepas: [
-    { name:"Arepa Dominó", ing:["Caraotas negras","Queso blanco rallado","Aguacate"], prices:[{label:null,val:"$10.000"}], image:"Galery/Alimentos/Varias arepas de Carne al Barril.jpeg" },
+    { name:"Arepa Dominó", ing:["Caraotas negras","Queso blanco rallado","Aguacate"], prices:[{label:null,val:"$10.000"}], image:"Galery/Alimentos/Arepa pabellon, Queso quajada.jpeg" },
     { name:"Arepa La Pelúa", ing:["Carne desmechada","Aguacate"], prices:[{label:"Con queso costeño",val:"$14.000"},{label:"Con queso mozzarella",val:"$15.000"}], image:"Galery/Alimentos/Arepa la pelúa.jpeg" },
     { name:"Arepa Reina Pepiada", ing:["Pollo desmechado","Aguacate","Mayonesa"], prices:[{label:"Con queso costeño",val:"$14.000"},{label:"Con queso mozzarella",val:"$15.000"}], image:"Galery/Alimentos/Arepa Reina Pepiada.jpeg" },
-    { name:"Arepa de Chicharrón", ing:["Chicharrón","Maduro","Queso costeño","Aguacate"], prices:[{label:null,val:"$14.000"}] },
+    { name:"Arepa de Chicharrón", ing:["Chicharrón","Maduro","Queso costeño","Aguacate"], prices:[{label:null,val:"$14.000"}], image:"Galery/Alimentos/Arepa de chicharron.jpeg" },
     { name:"Arepa Pabellón", ing:["Carne mechada","Caraotas negras","Plátano maduro","Queso"], prices:[{label:"Con queso costeño",val:"$15.000"},{label:"Con queso mozzarella",val:"$16.000"}], image:"Galery/Alimentos/Arepa de Pabellón.jpeg" },
     { name:"Arepa de la Casa", ing:["Carne al barril","Queso","Aguacate"], prices:[{label:"Con queso costeño",val:"$15.000"},{label:"Con queso mozzarella",val:"$16.000"}], image:"Galery/Alimentos/Arepa Carne al Barril.jpeg" }
   ],
   perros: [
-    { name:"Perro Pequeño Sencillo", ing:["Papas","Salchicha","Ensalada","Salsas","Queso amarillo"], prices:[{label:null,val:"$6.000"}] },
-    { name:"Perro Grande Sencillo", ing:["Papas","Salchicha","Ensalada","Salsas","Queso amarillo"], prices:[{label:null,val:"$11.000"}] },
+    { name:"Perro Pequeño Sencillo", ing:["Papas","Salchicha","Ensalada","Salsas","Queso amarillo"], prices:[{label:null,val:"$6.000"}], image:"Galery/Alimentos/Perro caliente - Especial.jpeg" },
+    { name:"Perro Grande Sencillo", ing:["Papas","Salchicha","Ensalada","Salsas","Queso amarillo"], prices:[{label:null,val:"$11.000"}], image:"Galery/Alimentos/Perro caliente - Especial.jpeg" },
     { name:"Perro Especial", ing:["Papas","Salchicha","Ensalada","Jamón","Queso mozzarella","Tocineta","Salsas","Queso amarillo"], prices:[{label:null,val:"$14.000"}], image:"Galery/Alimentos/Perro caliente - Especial.jpeg" },
-    { name:"Combo de Perros Clásico", ing:["2 Perros Pequeños","Gaseosa 250 ml"], prices:[{label:"Contenido",val:"$12.000"}] },
-    { name:"Perro de la Casa", ing:["Papas","Salchicha","Ensalada","Jamón","Queso mozzarella","Tocineta","Salsas","Queso amarillo"], prices:[{label:"Proteína a escoger: carne al barril, desmechada o pollo",val:"$19.000"}] },
-    { name:"Perro Súper Especial", ing:["Salchicha americana","Ensalada","Papas","Queso mozzarella","Jamón","Tocineta","Queso amarillo","Salsas"], prices:[{label:null,val:"$19.000"}] }
+    { name:"Combo de Perros Clásico", ing:["2 Perros Pequeños","Gaseosa 250 ml"], prices:[{label:"Contenido",val:"$12.000"}], image:"Galery/Alimentos/Perro caliente - Especial.jpeg" },
+    { name:"Perro de la Casa", ing:["Papas","Salchicha","Ensalada","Jamón","Queso mozzarella","Tocineta","Salsas","Queso amarillo"], prices:[{label:"Proteína a escoger: carne al barril, desmechada o pollo",val:"$19.000"}], image:"Galery/Alimentos/Perro caliente - Especial.jpeg" },
+    { name:"Perro Súper Especial", ing:["Salchicha americana","Ensalada","Papas","Queso mozzarella","Jamón","Tocineta","Queso amarillo","Salsas"], prices:[{label:null,val:"$19.000"}], image:"Galery/Alimentos/Perro caliente - Especial.jpeg" }
   ],
   hamburguesas: [
-    { name:"Hamburguesa Sencilla", ing:["Carne artesanal","Lechuga","Tomate","Papas","Salsas"], prices:[{label:null,val:"$12.000"}] },
-    { name:"Hamburguesa Especial", ing:["Carne artesanal","Lechuga","Tomate","Papas","Jamón","Huevo","Queso mozzarella","Tocineta","Salsas"], prices:[{label:null,val:"$17.000"}] },
-    { name:"Hamburguesa de la Casa", ing:["Carne artesanal","Pechuga","Lechuga","Tomate","Papas","Huevo","Tocineta","Jamón","Queso mozzarella","Aguacate","Salsas"], prices:[{label:null,val:"$22.000"}] },
-    { name:"Hamburguesa Pig", ing:["Carne artesanal","Chuleta de cerdo ahumada","Huevo","Tocineta","Jamón","Queso mozzarella","Lechuga","Tomate","Papas","Salsas"], prices:[{label:null,val:"$24.000"}] },
+    { name:"Hamburguesa Sencilla", ing:["Carne artesanal","Lechuga","Tomate","Papas","Salsas"], prices:[{label:null,val:"$12.000"}], image:"Galery/Alimentos/Hamburguesa Sencilla.jpeg" },
+    { name:"Hamburguesa Especial", ing:["Carne artesanal","Lechuga","Tomate","Papas","Jamón","Huevo","Queso mozzarella","Tocineta","Salsas"], prices:[{label:null,val:"$17.000"}], image:"Galery/Alimentos/Hamburguesa Trifasica.jpeg" },
+    { name:"Hamburguesa de la Casa", ing:["Carne artesanal","Pechuga","Lechuga","Tomate","Papas","Huevo","Tocineta","Jamón","Queso mozzarella","Aguacate","Salsas"], prices:[{label:null,val:"$22.000"}], image:"Galery/Alimentos/Hamburguesa Trifasica.jpeg" },
+    { name:"Hamburguesa Pig", ing:["Carne artesanal","Chuleta de cerdo ahumada","Huevo","Tocineta","Jamón","Queso mozzarella","Lechuga","Tomate","Papas","Salsas"], prices:[{label:null,val:"$24.000"}], image:"Galery/Alimentos/Hamburguesa Trifasica.jpeg" },
     { name:"Hamburguesa Trifásica", ing:["Carne artesanal","Pollo","Chuleta de cerdo ahumada o carne al barril","Huevo","Tocineta","Jamón","Queso mozzarella","Lechuga","Tomate","Papas","Salsas"], prices:[{label:null,val:"$30.000"}], image:"Galery/Alimentos/Hamburguesa Trifasica.jpeg" }
   ],
   pepitos: [
-    { name:"Pepito", ing:["Carne o pollo","Porciones generosas","Combinaciones especiales"], prices:[{label:"Disponibilidad",val:"Próximamente"}], image:"Galery/Alimentos/Pepito.jpeg" }
+    { name:"Pepito", ing:["Carne o pollo","Porciones generosas","Combinaciones especiales"], prices:[{label:"Precio",val:"Consultar"}], image:"Galery/Alimentos/Pepito.jpeg" }
   ]
 };
 
@@ -1069,26 +1497,26 @@ function buildPepitosPlaceholder() {
       <div class="item-media-empty">
         <span class="media-icon">🌭</span>
         <strong>Pepitos</strong>
-        <p>Sección lista para cargar foto, sabores y precios cuando me pases el listado final.</p>
+        <p>Estamos preparando esta sección con más sabores y precios. Mientras tanto, escríbenos por WhatsApp para consultar disponibilidad.</p>
       </div>
-      <span class="item-media-badge">Próximamente</span>
+      <span class="item-media-badge">En preparación</span>
     </div>
     <div class="item-card-top">
       <span class="item-name">Pepitos venezolanos</span>
-      <span class="item-pill">Nuevo</span>
+      <span class="item-pill">Próximamente</span>
     </div>
-    <div class="item-toggle-row">${chevron}<span>Ver guía de carga</span></div>
+    <div class="item-toggle-row">${chevron}<span>Ver detalles</span></div>
     <div class="item-body">
-      <p class="ing-label">Qué falta agregar</p>
+      <p class="ing-label">Estado</p>
       <div class="ing-chips">
-        <span class="ing-chip">Lista de sabores</span>
+        <span class="ing-chip">Sabores</span>
         <span class="ing-chip">Precios</span>
         <span class="ing-chip">Foto</span>
       </div>
       <div class="price-rows">
         <div class="price-row">
           <span class="price-row-label"><span class="price-dot"></span>Estado</span>
-          <span class="price-row-val">Pendiente</span>
+          <span class="price-row-val">Consultar</span>
         </div>
       </div>
     </div>
@@ -1156,20 +1584,27 @@ function showCat(id, triggerEl) {
   document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-  document.getElementById('sec-' + id).classList.add('active');
+  const targetSection = document.getElementById('sec-' + id);
+  if (!targetSection) return;
+  targetSection.classList.add('active');
   if (triggerEl) {
     if (triggerEl.classList.contains('cat-tab')) triggerEl.classList.add('active');
     if (triggerEl.tagName === 'A') triggerEl.classList.add('active');
   }
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function toggleMobile() {
-  document.getElementById('navLinks').classList.toggle('open');
+  const navLinks = document.getElementById('navLinks');
+  const hamburger = document.getElementById('hamburger');
+  const isOpen = navLinks.classList.toggle('open');
+  if (hamburger) hamburger.setAttribute('aria-expanded', String(isOpen));
 }
 
 function closeMobile() {
   document.getElementById('navLinks').classList.remove('open');
+  const hamburger = document.getElementById('hamburger');
+  if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
 }
 
 const THEME_STORAGE_KEY = 'sabor58-theme';

@@ -3,14 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Redes y contenido corto de Sabor +58. Reels, clips y embeds para Instagram, TikTok, YouTube y video propio.">
 <title>Sabor +58 — Redes</title>
+<link rel="icon" type="image/png" href="Galery/Favicon_Sabor58.png">
+<link rel="apple-touch-icon" href="Galery/Favicon_Sabor58.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <script>
 (() => {
   try {
     const saved = localStorage.getItem('sabor58-theme');
-    const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const theme = saved || 'dark';
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
   } catch (error) {
@@ -51,26 +54,26 @@
 }
 
 html[data-theme="dark"] {
-  --page-bg: #050505;
-  --nav-bg: rgba(7,7,8,0.88);
-  --hero-bg: radial-gradient(circle at top right, rgba(215,38,56,0.18), transparent 22%), radial-gradient(circle at 20% 18%, rgba(255,195,0,0.08), transparent 18%), linear-gradient(135deg, #050505 0%, #090a0d 100%);
+  --page-bg: #040506;
+  --nav-bg: rgba(6,8,12,0.72);
+  --hero-bg: radial-gradient(circle at 50% 0%, rgba(255,195,0,0.08), transparent 18%), radial-gradient(circle at 84% 10%, rgba(215,38,56,0.16), transparent 22%), linear-gradient(180deg, #0b0d11 0%, #040506 100%);
   --hero-text: #FFFFFF;
-  --hero-note: rgba(255,255,255,0.82);
-  --accent-blue: #B5C3D8;
+  --hero-note: rgba(255,255,255,0.76);
+  --accent-blue: #D7E0F0;
   --toggle-bg: rgba(255,255,255,0.04);
   --toggle-border: rgba(255,255,255,0.10);
   --toggle-text: #FFFFFF;
   --toggle-thumb: #FFFFFF;
   --toggle-thumb-text: #1A1A1A;
-  --code-bg: #0b0c0f;
+  --code-bg: #0b0d11;
   --text: #F4F7FB;
   --muted: #A6ADBB;
   --border: rgba(255,255,255,0.08);
-  --card-bg: #0c0e12;
-  --bg: #050505;
+  --card-bg: rgba(12,14,18,0.88);
+  --bg: #040506;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -78,6 +81,13 @@ body {
   color: var(--text);
   min-height: 100vh;
   transition: background-color 0.45s ease, color 0.35s ease;
+}
+
+html[data-theme="dark"] body {
+  background:
+    radial-gradient(circle at top, rgba(215,38,56,0.10), transparent 22%),
+    radial-gradient(circle at 85% 0%, rgba(255,195,0,0.07), transparent 18%),
+    var(--page-bg);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -100,16 +110,25 @@ nav {
   border-bottom: 0.5px solid rgba(255,255,255,0.08);
 }
 
-.nav-logo {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: 1.25rem;
-  color: #fff;
-  text-decoration: none;
-  letter-spacing: -0.5px;
+html[data-theme="dark"] nav {
+  background: rgba(6,8,12,0.72);
+  border-bottom-color: rgba(255,255,255,0.06);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.22);
 }
 
-.nav-logo span { color: var(--brand-light); }
+.nav-logo {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.nav-logo img {
+  display: block;
+  height: 38px;
+  width: auto;
+}
 
 .nav-links {
   display: flex;
@@ -243,6 +262,10 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   clip-path: ellipse(55% 100% at 50% 100%);
 }
 
+html[data-theme="dark"] .hero::after {
+  background: linear-gradient(180deg, rgba(4,5,6,0), var(--page-bg) 72%);
+}
+
 .hero-kicker {
   color: var(--brand-light);
   font-size: 13px;
@@ -299,10 +322,25 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   border-color: rgba(255,195,0,0.45);
 }
 
+html[data-theme="dark"] .hero-badge {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+html[data-theme="dark"] .hero-badge:hover {
+  background: var(--brand-light);
+  color: var(--brand-black);
+  border-color: rgba(255,195,0,0.45);
+}
+
 .page-wrap {
   max-width: 1180px;
   margin: 0 auto;
   padding: 0 1.25rem 4rem;
+  scroll-margin-top: 76px;
 }
 
 .instagram-spotlight {
@@ -312,6 +350,7 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   display: grid;
   grid-template-columns: 1fr;
   gap: 18px;
+  scroll-margin-top: 76px;
 }
 
 .spotlight-card {
@@ -320,6 +359,20 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   border-radius: var(--radius);
   box-shadow: 0 10px 24px rgba(0,53,102,0.05);
   overflow: hidden;
+}
+
+html[data-theme="dark"] .spotlight-card,
+html[data-theme="dark"] .selector-panel,
+html[data-theme="dark"] .social-panel,
+html[data-theme="dark"] .option-card,
+html[data-theme="dark"] .tip-banner,
+html[data-theme="dark"] .code-card,
+html[data-theme="dark"] .note-list li {
+  background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
+  border-color: rgba(255,255,255,0.08);
+  box-shadow: 0 18px 42px rgba(0,0,0,0.28);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .spotlight-copy {
@@ -397,6 +450,112 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   border: 1px solid var(--border);
   color: var(--text);
   background: transparent;
+}
+
+.video-showcase {
+  max-width: 1180px;
+  margin: -1.2rem auto 0;
+  padding: 0 1.25rem 1.2rem;
+}
+
+.video-showcase-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 1rem;
+}
+
+.video-showcase-head h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  letter-spacing: -0.4px;
+}
+
+.video-showcase-head p {
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.video-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.18);
+}
+
+html[data-theme="dark"] .video-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-color: rgba(255,255,255,0.08);
+}
+
+.video-card .preview-visual {
+  min-height: 250px;
+}
+
+.video-card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 1rem 1rem 1.1rem;
+}
+
+.video-card-copy strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.video-card-copy span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.mobile-wa-cta {
+  display: none;
+}
+
+.mobile-wa-cta svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.mobile-wa-cta span {
+  display: block;
+}
+
+.mobile-wa-cta strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.mobile-wa-cta small {
+  display: block;
+  font-size: 11px;
+  line-height: 1.2;
+  opacity: 0.78;
 }
 
 .spotlight-embed {
@@ -489,16 +648,32 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s, background 0.18s;
 }
 
+html[data-theme="dark"] .platform-btn {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.08);
+}
+
 .platform-btn:hover {
   transform: translateY(-1px);
   border-color: var(--accent-blue);
   box-shadow: 0 8px 18px rgba(0,53,102,0.05);
 }
 
+html[data-theme="dark"] .platform-btn:hover {
+  border-color: rgba(255,195,0,0.22);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.22);
+}
+
 .platform-btn.active {
   background: linear-gradient(135deg, rgba(255,195,0,0.16) 0%, var(--card-bg) 100%);
   border-color: rgba(215,38,56,0.32);
   box-shadow: 0 10px 24px rgba(215,38,56,0.12);
+}
+
+html[data-theme="dark"] .platform-btn.active {
+  background: linear-gradient(135deg, rgba(255,195,0,0.12) 0%, rgba(12,14,18,0.88) 100%);
+  border-color: rgba(255,195,0,0.22);
+  box-shadow: 0 14px 30px rgba(215,38,56,0.12);
 }
 
 .platform-icon {
@@ -592,6 +767,10 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   overflow: hidden;
 }
 
+html[data-theme="dark"] .preview-card {
+  box-shadow: 0 16px 34px rgba(0,0,0,0.22);
+}
+
 .preview-visual {
   min-height: 280px;
   padding: 1.25rem;
@@ -599,6 +778,10 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   flex-direction: column;
   justify-content: space-between;
   color: #fff;
+}
+
+html[data-theme="dark"] .preview-visual {
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
 .preview-top {
@@ -672,6 +855,10 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   padding: 1rem;
 }
 
+html[data-theme="dark"] .code-card {
+  box-shadow: 0 16px 34px rgba(0,0,0,0.22);
+}
+
 .code-head {
   display: flex;
   justify-content: space-between;
@@ -719,6 +906,11 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   overflow: auto;
 }
 
+html[data-theme="dark"] .code-block {
+  background: #080a0e;
+  color: #f8e9c7;
+}
+
 .note-list {
   margin-top: 0.9rem;
   list-style: none;
@@ -740,6 +932,7 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   padding: 1.25rem 1.25rem 4rem;
   max-width: 1180px;
   margin: 0 auto;
+  scroll-margin-top: 76px;
 }
 
 .section-title {
@@ -812,6 +1005,11 @@ html[data-theme="dark"] .theme-toggle-thumb { transform: translateX(20px); }
   word-break: break-word;
 }
 
+html[data-theme="dark"] .option-card code {
+  background: #080a0e;
+  color: #f8e9c7;
+}
+
 footer {
   background: var(--dark);
   color: rgba(255,255,255,0.72);
@@ -820,15 +1018,22 @@ footer {
   font-size: 12px;
 }
 
+html[data-theme="dark"] footer {
+  background: #030405;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
 footer strong { color: #fff; }
 
 @media (max-width: 980px) {
   .spotlight-feed { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .selector-grid { grid-template-columns: 1fr; }
   .option-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 700px) {
+  body { padding-bottom: 96px; }
   .nav-links { display: none; }
   .nav-links.open {
     display: flex;
@@ -848,9 +1053,13 @@ footer strong { color: #fff; }
     justify-content: flex-start;
   }
   .hamburger { display: flex; }
+  .nav-logo img { height: 34px; }
   .theme-toggle { padding: 0.35rem; margin-left: 0.5rem; }
   .theme-toggle-label { display: none; }
   .hero { padding: 5rem 1.1rem 3.5rem; }
+  .video-showcase { padding-inline: 1rem; }
+  .video-showcase-head { align-items: flex-start; flex-direction: column; }
+  .video-grid { grid-template-columns: 1fr; }
   .instagram-spotlight { margin-top: -1.4rem; padding-inline: 1rem; }
   .spotlight-feed { grid-template-columns: 1fr; }
   .page-wrap { padding-inline: 1rem; }
@@ -860,39 +1069,130 @@ footer strong { color: #fff; }
   .option-section { padding-inline: 1rem; }
   .option-grid { grid-template-columns: 1fr; }
   .code-head { align-items: flex-start; flex-direction: column; }
+  .mobile-wa-cta {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    z-index: 120;
+    padding: 0.95rem 1rem;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #FFC300 0%, #FFE39A 100%);
+    color: #1A1A1A;
+    text-decoration: none;
+    box-shadow: 0 22px 48px rgba(0,0,0,0.32);
+    border: 1px solid rgba(255,255,255,0.5);
+  }
 }
 </style>
 </head>
 <body>
 
 <nav id="navbar">
-  <a class="nav-logo" href="index.html">Sabor <span>+58</span></a>
+  <a class="nav-logo" href="index.html" aria-label="Sabor +58">
+    <img src="Galery/Logo_Sabor58.png" alt="" aria-hidden="true">
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html" onclick="closeMobile();">Menú</a></li>
+    <li><a href="#videos" onclick="closeMobile();">Videos</a></li>
     <li><a href="#selector" onclick="closeMobile();">Embeds</a></li>
-    <li><a href="#opciones" onclick="closeMobile();">Resumen</a></li>
+    <li><a href="#opciones" onclick="closeMobile();">Ideas</a></li>
     <li><a href="https://wa.me/573043753966" target="_blank" rel="noopener noreferrer" class="nav-wa" onclick="closeMobile();">WhatsApp ↗</a></li>
   </ul>
   <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Cambiar tema">
     <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb" id="themeThumb">☾</span></span>
     <span class="theme-toggle-label" id="themeToggleLabel">Oscuro</span>
   </button>
-  <button class="hamburger" id="hamburger" aria-label="Menú" onclick="toggleMobile()">
+  <button class="hamburger" id="hamburger" aria-label="Menú" aria-controls="navLinks" aria-expanded="false" onclick="toggleMobile()">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <section class="hero">
   <div class="hero-kicker">Contenido para redes</div>
-  <h1>Reels, clips y <em>embeds</em></h1>
-  <p class="hero-copy">Esta subpágina reúne varias formas de mostrar contenido de Instagram, TikTok, YouTube Shorts o video propio. Elige el formato que mejor te funcione y pega el código en la parte correspondiente de tu sitio.</p>
+  <h1>Videos, reels y <em>embeds</em></h1>
+  <p class="hero-copy">Usa videos para abrir apetito, reels para alcance y embeds para mostrar la pieza completa. Aquí organizamos todo por formato para que publiques más rápido y con más orden.</p>
   <div class="hero-badges">
     <a class="hero-badge" href="https://www.instagram.com/sabor_.mas58?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Instagram @sabor_.mas58</a>
+    <a class="hero-badge" href="#videos">Ver videos</a>
     <a class="hero-badge" href="index.html">Volver al menú</a>
   </div>
 </section>
 
-<section class="instagram-spotlight is-hidden" id="reel">
+<section class="video-showcase" id="videos">
+  <div class="video-showcase-head">
+    <div>
+      <span class="spotlight-kicker">Videos recomendados</span>
+      <h3>Arranca con video, cierra con pedido</h3>
+    </div>
+    <p>Los tres formatos más útiles para Sabor +58: un reel protagonista, un short vertical y un video propio cuando quieras control total sobre la reproducción.</p>
+  </div>
+  <div class="video-grid">
+    <article class="video-card">
+      <div class="preview-visual preview-visual--instagram">
+        <div class="preview-top">
+          <span class="preview-chip">Reel</span>
+          <span class="preview-chip alt">Producto</span>
+        </div>
+        <div>
+          <h3>Arepas al barril</h3>
+          <p>El video que abre la vitrina social con más apetito y mejor alcance en Instagram.</p>
+        </div>
+      </div>
+      <div class="video-card-foot">
+        <div class="video-card-copy">
+          <strong>Instagram Reel</strong>
+          <span>Apertura visual de la marca</span>
+        </div>
+        <a class="spotlight-link primary" href="https://www.instagram.com/reel/DZC0ejZRE88/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener noreferrer">Abrir</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <div class="preview-visual preview-visual--youtube">
+        <div class="preview-top">
+          <span class="preview-chip">Short</span>
+          <span class="preview-chip alt">Vertical</span>
+        </div>
+        <div>
+          <h3>Video de cocina</h3>
+          <p>Ideal para proceso, armado y primeros planos rápidos que empujan la decisión.</p>
+        </div>
+      </div>
+      <div class="video-card-foot">
+        <div class="video-card-copy">
+          <strong>YouTube Shorts</strong>
+          <span>Formato vertical para retención</span>
+        </div>
+        <a class="spotlight-link primary" href="#selector">Configurar</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <div class="preview-visual preview-visual--video">
+        <div class="preview-top">
+          <span class="preview-chip">MP4</span>
+          <span class="preview-chip alt">Propio</span>
+        </div>
+        <div>
+          <h3>Tu video</h3>
+          <p>Cuando quieras independencia total y una experiencia consistente dentro del sitio.</p>
+        </div>
+      </div>
+      <div class="video-card-foot">
+        <div class="video-card-copy">
+          <strong>Video propio</strong>
+          <span>Control total del diseño y el peso</span>
+        </div>
+        <a class="spotlight-link primary" href="#selector">Ver código</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="instagram-spotlight" id="reel">
   <article class="spotlight-card spotlight-copy">
     <div>
       <div class="spotlight-kicker">Instagram destacado</div>
@@ -925,7 +1225,7 @@ footer strong { color: #fff; }
   </div>
 </section>
 
-<div class="page-wrap is-hidden" id="selector">
+<div class="page-wrap" id="selector">
   <div class="selector-grid">
     <aside class="selector-panel">
       <div class="panel-kicker">Formatos</div>
@@ -978,10 +1278,10 @@ footer strong { color: #fff; }
   </div>
 </div>
 
-<section class="option-section is-hidden" id="opciones">
+<section class="option-section" id="opciones">
   <div class="section-title">
-    <h3>Reels listos</h3>
-    <p>Publicaciones ya preparadas para mostrar comida, proceso y marca.</p>
+    <h3>Ideas y formatos</h3>
+    <p>Videos, promos y piezas cortas para mantener la cuenta activa con variedad.</p>
   </div>
 
   <div class="option-grid">
@@ -1004,10 +1304,22 @@ footer strong { color: #fff; }
       <code>&lt;blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZY0MorNXQl/?utm_source=ig_embed&amp;utm_campaign=loading" ...&gt;</code>
     </article>
     <article class="option-card">
-      <div class="option-badge">IG</div>
+      <div class="option-badge">04</div>
       <h4>Perfil oficial</h4>
       <p>Enlace directo a la cuenta para que el usuario siga la marca sin salir de contexto.</p>
       <code>https://www.instagram.com/sabor_.mas58</code>
+    </article>
+    <article class="option-card">
+      <div class="option-badge">05</div>
+      <h4>Detrás de cámaras</h4>
+      <p>Plancha, armado y emplatado para mostrar cocina real y generar cercanía con la marca.</p>
+      <code>&lt;video controls playsinline poster="detras-de-camaras.jpg"&gt;...&lt;/video&gt;</code>
+    </article>
+    <article class="option-card">
+      <div class="option-badge">06</div>
+      <h4>Promo express</h4>
+      <p>Oferta del día, combo o llamado a la acción para cerrar más pedidos por WhatsApp.</p>
+      <code>&lt;a class="spotlight-link primary" href="https://wa.me/573043753966"&gt;Pedir ahora&lt;/a&gt;</code>
     </article>
   </div>
 </section>
@@ -1016,6 +1328,14 @@ footer strong { color: #fff; }
   <strong>Sabor +58</strong> · Redes y contenido corto · Pereira, Colombia<br>
   <span style="margin-top:4px;display:block;">Volver al menú: <a href="index.html" style="color:inherit;">index.html</a> · WhatsApp: +57 304 375 3966</span>
 </footer>
+
+<a class="mobile-wa-cta" href="https://wa.me/573043753966" target="_blank" rel="noopener noreferrer" aria-label="Pedir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1zm0 0a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>
+  <span>
+    <strong>Pedir por WhatsApp</strong>
+    <small>Respuesta rápida</small>
+  </span>
+</a>
 
 <script>
 const PLATFORMS = {
@@ -1166,11 +1486,16 @@ async function copyCurrentCode() {
 }
 
 function toggleMobile() {
-  document.getElementById('navLinks').classList.toggle('open');
+  const navLinks = document.getElementById('navLinks');
+  const hamburger = document.getElementById('hamburger');
+  const isOpen = navLinks.classList.toggle('open');
+  if (hamburger) hamburger.setAttribute('aria-expanded', String(isOpen));
 }
 
 function closeMobile() {
   document.getElementById('navLinks').classList.remove('open');
+  const hamburger = document.getElementById('hamburger');
+  if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
 }
 
 const THEME_STORAGE_KEY = 'sabor58-theme';
